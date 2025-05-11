@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="DoCe_mango" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/DoCe_mango" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option parameters="-test" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/DoCe_mango" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add directory="doce" />
+			<Add directory="doce/src" />
+			<Add directory="doce/libs" />
+			<Add directory="doce/domains" />
+			<Add directory="doce/interfaces" />
+			<Add directory="doce/services" />
+		</Compiler>
+		<Unit filename="doce/doce.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="doce/doce.h" />
+		<Unit filename="doce/domains/carta/carta_modelo.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="doce/domains/carta/carta_modelo.h" />
+		<Unit filename="doce/domains/carta/carta_privado.h" />
+		<Unit filename="doce/domains/carta/carta_publico.h" />
+		<Unit filename="doce/domains/jugador/jugador_modelo.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="doce/domains/jugador/jugador_modelo.h" />
+		<Unit filename="doce/domains/jugador/jugador_privado.h" />
+		<Unit filename="doce/domains/jugador/jugador_publico.h" />
+		<Unit filename="doce/domains/mano/mano.h" />
+		<Unit filename="doce/domains/mazo/mazo_modelo.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="doce/domains/mazo/mazo_modelo.h" />
+		<Unit filename="doce/domains/mazo/mazo_privado.h" />
+		<Unit filename="doce/domains/mazo/mazo_publico.h" />
+		<Unit filename="doce/domains/tipo_jugador/tipo_jugador.h" />
+		<Unit filename="doce/domains/tipo_poder/tipo_poder.h" />
+		<Unit filename="doce/includes/config.h" />
+		<Unit filename="doce/interfaces/juego_ia/juego_ia_interfaz.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="doce/interfaces/juego_ia/juego_ia_interfaz.h" />
+		<Unit filename="doce/libs/utils/colaDinamica.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="doce/libs/utils/colaDinamica.h" />
+		<Unit filename="doce/libs/utils/listaSimple.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="doce/libs/utils/listaSimple.h" />
+		<Unit filename="doce/libs/utils/utils.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="doce/libs/utils/utils.h" />
+		<Unit filename="doce/services/ia/ia_contexto.h" />
+		<Unit filename="doce/services/ia/ia_servicio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="doce/services/ia/ia_servicio.h" />
+		<Unit filename="doce/services/jugada/jugada_contexto.h" />
+		<Unit filename="doce/services/jugada/jugada_coordinador.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="doce/services/jugada/jugada_coordinador.h" />
+		<Unit filename="doce/services/jugada/jugada_modelo.h" />
+		<Unit filename="doce/services/jugada/jugada_servicio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="doce/services/jugada/jugada_servicio.h" />
+		<Unit filename="doce/services/jugador/jugador_coordinador.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="doce/services/jugador/jugador_coordinador.h" />
+		<Unit filename="doce/services/mazo/mazo_coordinador.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="doce/services/mazo/mazo_coordinador.h" />
+		<Unit filename="doce/services/mazo/mazo_servicios.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="doce/services/mazo/mazo_servicios.h" />
+		<Unit filename="doce/src/juego/juego_controlador.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="doce/src/juego/juego_controlador.h" />
+		<Unit filename="doce/src/juego/juego_modelo.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="doce/src/juego/juego_modelo.h" />
+		<Unit filename="doce/src/juego/juego_vista.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="doce/src/juego/juego_vista.h" />
+		<Unit filename="doce/src/menu/menu_controlador.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="doce/src/menu/menu_controlador.h" />
+		<Unit filename="doce/src/menu/menu_vista.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="doce/src/menu/menu_vista.h" />
+		<Unit filename="doce/src/partida/partida_controlador.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="doce/src/partida/partida_controlador.h" />
+		<Unit filename="doce/src/partida/partida_persistencia.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="doce/src/partida/partida_persistencia.h" />
+		<Unit filename="doce/src/partida/partida_remoto.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="doce/src/partida/partida_remoto.h" />
+		<Unit filename="doce/src/partida/partida_vista.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="doce/src/partida/partida_vista.h" />
+		<Unit filename="doce/src/ranking/ranking_controlador.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="doce/src/ranking/ranking_controlador.h" />
+		<Unit filename="doce/src/ranking/ranking_remoto.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="doce/src/ranking/ranking_remoto.h" />
+		<Unit filename="doce/src/ranking/ranking_vista.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="doce/src/ranking/ranking_vista.h" />
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="main.h" />
+		<Extensions>
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
