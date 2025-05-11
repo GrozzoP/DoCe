@@ -20,8 +20,14 @@ enum Perfiles{
 
 	CANT_PERFILES
 };
-#define		STRING_PERFILES		((const char*[]){TO_STRING(HUMANO), TO_STRING(IA_FACIL),\
-									TO_STRING(IA_NORMAL), TO_STRING(IA_DIFICIL)})
+__attribute__((unused)) static const char* STRING_PERFILES[] = {
+	TO_STRING(HUMANO),
+	TO_STRING(IA_FACIL),
+	TO_STRING(IA_NORMAL),
+	TO_STRING(IA_DIFICIL)
+};
+
+
 enum Poderes{
 	SUMAR_2,
 	SUMAR_1,
@@ -32,10 +38,22 @@ enum Poderes{
 
 	CANT_PODERES
 };
-#define		STRING_PODER		((const char*[]){TO_STRING(SUMAR_2), TO_STRING(SUMAR_1),\
-									TO_STRING(RESTAR_1), TO_STRING(RESTAR_2), TO_STRING(REP_TURNO),\
-										TO_STRING(ESPEJO)})
-#define  	CANT_PODER_CARTA	((unsigned[]){6, 10, 8, 6, 6, 4})
+__attribute__((unused)) static const char* STRING_PODER[] = {
+    TO_STRING(SUMAR_2),
+    TO_STRING(SUMAR_1),
+    TO_STRING(RESTAR_1),
+    TO_STRING(RESTAR_2),
+    TO_STRING(REP_TURNO),
+    TO_STRING(ESPEJO)
+};
+__attribute__((unused)) static const unsigned CANT_PODER_CARTA[] = {
+	6,
+	10,
+	8,
+	6,
+	6,
+	4
+};
 
 
 #define		TITULO			("--- Bienvenido a DoCe ---")
