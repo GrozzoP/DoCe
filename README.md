@@ -1,5 +1,6 @@
 # DoCe
 =================
+
 recordar que en "includes/config.h"  hay varios datos importantes por ejemplo
 
 enum Poderes{
