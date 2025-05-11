@@ -1,0 +1,7 @@
+Un pruebas.md con diferentes lotes de prueba con el siguiente formato:
+Descripción Salida esperada Salida obtenida
+Se quiere probar qué es lo
+que pasaría si….
+Se espera que…. La salida obtenida fue….
+Mínimo se deben documentar 8 casos de prueba, con captura de pantalla de la
+salida obtenida.
