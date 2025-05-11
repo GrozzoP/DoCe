@@ -5,17 +5,35 @@
 #include 	"juego/juego_vista.h"
 #include	"jugada/jugada_servicio.h"
 #include	"juego_ia/juego_ia_interfaz.h"
+#include	"includes/config.h"
 #include	<stddef.h>
 
 
 Juego* Controlador__empezarJuego(const char* nombres[], unsigned cantJugadores, JugadaCoord* jugadas)
 {
-	static Juego j = {.turnoActual = 0};
+	static Juego j;
+
+	j.turnoActual = 0;
+	j.datosSerializados = crearContextoUI(nombres, cantJugadores, CANT_MANO);
+
+	///test
+	static char* str[] = {
+		"carta especial",
+		"carta +2",
+		"carta jeje",
+		"bombardino cocordrilo",
+		"tu mama"
+	};
+	j.datosSerializados->cartas = str;
+	j.datosSerializados->ultimaCarta = str[3];
+	j.datosSerializados->jugadorActual = str[4];
+
 
 	return &j;
 }
 const bool* Controlador__terminarJuego(Juego* j)
 {
+	borrarContextoUI(j->datosSerializados);
 	return NULL;
 }
 void Controlador__bucleJuego(Juego* j)
@@ -26,7 +44,7 @@ void Controlador__bucleJuego(Juego* j)
 	do
 	{
 		//actualizar pantalla
-		Vista__mostrarPartida(Modelo__datosSerializados(j), Modelo__nombreTurno(j));
+		Vista__mostrarPartida(j->datosSerializados);
 
 		//recibir input
 		entrada = 	j->turnoActual == HUMANO? 	Vista__selecionarCarta():

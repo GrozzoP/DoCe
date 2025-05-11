@@ -1,7 +1,7 @@
 
 #include	"juego/juego_modelo.h"
 #include	<stddef.h>
-
+#include	<string.h>
 
 
 unsigned Modelo__puntuacionAlta(Juego* j)
@@ -10,14 +10,7 @@ unsigned Modelo__puntuacionAlta(Juego* j)
 }
 void Modelo__procesar(Juego* j, char c)
 {
+	///para hacer --> aca el juego pasa los datos atravez de los coordinadores
 
-}
-char* Modelo__nombreTurno(Juego* j)
-{
-	return NULL;
-}
-char* Modelo__datosSerializados(Juego* j)
-{
-	return NULL;
 }
 

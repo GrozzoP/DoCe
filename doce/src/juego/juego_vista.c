@@ -1,5 +1,6 @@
 
 #include	"juego/juego_vista.h"
+#include	"ui/ui_contexto.h"
 #include	<stdio.h>
 #include	<windows.h>
 
@@ -9,33 +10,35 @@ char Vista__selecionarCarta()
 	fflush(stdin);
 	return getc(stdin);
 }
-void Vista__mostrarPartida(char d[static 4], char* jugador)
+void Vista__mostrarPartida(const CtxUI* ctx)
 {
 	system("cls");
 	puts  ("\t-----------------------------");
 	puts  ("\t|       |  |  |  |          |");
 	puts  ("\t|       |  |  |  |          |");
 	puts  ("\t|        -- -- --           |");
-	printf("\t|                           | ---> %s \n", "IA");
+	printf("\t|                           | ---> jugador: %s\n", ctx->jugadores[1]);
 	puts  ("\t|                           |");
 	puts  ("\t|                     ____  |");
 	puts  ("\t|                    |MAZO| |");
 	puts  ("\t|                    |    | |");
 	puts  ("\t|                    |____| |");
 	puts  ("\t|                           |");
-	printf("\t|                           | ---> %s %s\n", "TURNO de ", jugador);
+	printf("\t|                           | ---> TURNO de: %s\n", ctx->jugadorActual);
 	puts  ("\t|          ____             |");
-	printf("\t|         |%c    |            |\n", d[3]);
+	printf("\t|         |T   |            | T: %s\n", ctx->ultimaCarta);
 	puts  ("\t|         |    |            |");
 	puts  ("\t|         |____|            |");
 	puts  ("\t|                           |");
 	puts  ("\t|                           |");
-	printf("\t|                           | ---> %s \n", "jugador");
-	puts  ("\t|         A    B    C       |");
+	printf("\t|                           | ---> jugador: %s\n", ctx->jugadores[0]);
+	puts  ("\t|                           |");
+	puts  ("\t|                           |");
+	puts  ("\t|                           |");
 	puts  ("\t|        ---- ---- ----     |");
-	printf("\t|       |%c    |%c    |%c    |    |\n", d[0],d[1],d[2]);
-	puts  ("\t|       |    |    |    |    |");
-	puts  ("\t|       |    |    |    |    |");
+	printf("\t|       |A   |B   |C   |    | A: %s\n", ctx->cartas[0]);
+	printf("\t|       |    |    |    |    | B: %s\n", ctx->cartas[1]);
+	printf("\t|       |    |    |    |    | C: %s\n", ctx->cartas[2]);
 	puts  ("\t-----------------------------");
 }
 void Vista__mostrarJugador(char* jugador)
