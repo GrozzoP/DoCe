@@ -21,4 +21,5 @@ __attribute__((unused)) static const char* STRING_PODER[] = {
     TO_STRING(ESPEJO)
 };
 
-entonces podemos hacer  STRING_PODER[SUMAR_2]; y nos da "SUMAR_2" es util para las vistas
+entonces podemos hacer 
+STRING_PODER[SUMAR_2]; y nos da "SUMAR_2" lo cual es util para las vistas
