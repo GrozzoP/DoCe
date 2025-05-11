@@ -1,0 +1,22 @@
+# Archivos de proyecto de Code::Blocks
+*.depend
+*.layout
+*.cbp
+*.workspace
+*.layout.save
+
+# Archivos generados de compilación
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.a
+*.lib
+
+# Archivos de respaldo o temporales
+*~
+*.swp
+*.bak
+*.tmp
+
