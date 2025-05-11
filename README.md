@@ -9,8 +9,7 @@ enum Poderes{
 	RESTAR_2,
 	REP_TURNO,
 	ESPEJO,
-
-	CANT_PODERES
+ 	CANT_PODERES
 };
 __attribute__((unused)) static const char* STRING_PODER[] = {
     TO_STRING(SUMAR_2),
