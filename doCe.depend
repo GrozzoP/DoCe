@@ -1,0 +1,89 @@
+# depslib dependency file v1.0
+1746388788 source:d:\doce\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"libs/conectarAPI.h"
+
+1746389075 source:d:\doce\conectarapi.c
+	"libs/conectarAPI.h"
+
+1746387896 d:\doce\libs\conectarapi.h
+	<curl/curl.h>
+	"jugador.h"
+
+1746386556 d:\doce\libs\jugador.h
+
+1746389076 source:e:\doce\conectarapi.c
+	"libs/conectarAPI.h"
+
+1746387898 e:\doce\libs\conectarapi.h
+	<curl/curl.h>
+	"jugador.h"
+
+1746386558 e:\doce\libs\jugador.h
+
+1746388790 source:e:\doce\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"libs/conectarAPI.h"
+
+1746389076 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\ejercicios\doce\conectarapi.c
+	"libs/conectarAPI.h"
+
+1746387898 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\ejercicios\doce\libs\conectarapi.h
+	<curl/curl.h>
+	"jugador.h"
+
+1746386558 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\ejercicios\doce\libs\jugador.h
+
+1746388790 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\ejercicios\doce\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"libs/conectarAPI.h"
+
+1746389076 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\conectarapi.c
+	"libs/conectarAPI.h"
+
+1747165212 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lib/conectarAPI.h"
+
+1747165351 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\lib\conectarapi.c
+	"conectarAPI.h"
+
+1747165195 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\lib\conectarapi.h
+	<curl/curl.h>
+	"../include/jugador.h"
+
+1746386558 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\include\jugador.h
+
+1747165325 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\jugador.c
+
+1747165392 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\carta.c
+
+1747166417 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\ia.c
+
+1747166364 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\jugada.c
+
+1747165405 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\mano.c
+
+1747165426 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\mazo.c
+
+1747166505 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\partida.c
+
+1747166505 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\ranking.c
+
+1747165807 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\utils\coladinamica.c
+
+1747167386 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\utils\listasimple.c
+	"../../include/utils/listaSimple.h"
+
+1747167434 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\include\utils\listasimple.h
+	<stdlib.h>
+	<string.h>
+

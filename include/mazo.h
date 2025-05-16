@@ -1,0 +1,6 @@
+#ifndef MAZO_H_INCLUDED
+#define MAZO_H_INCLUDED
+
+
+
+#endif // MAZO_H_INCLUDED

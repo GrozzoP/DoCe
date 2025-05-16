@@ -1,0 +1,6 @@
+#ifndef JUGADA_H_INCLUDED
+#define JUGADA_H_INCLUDED
+
+
+
+#endif // JUGADA_H_INCLUDED

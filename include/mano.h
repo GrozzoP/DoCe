@@ -1,0 +1,6 @@
+#ifndef MANO_H_INCLUDED
+#define MANO_H_INCLUDED
+
+
+
+#endif // MANO_H_INCLUDED

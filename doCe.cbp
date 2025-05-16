@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="doCe" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/doCe" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/doCe" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="config.h" />
+		<Unit filename="include/IA.h" />
+		<Unit filename="include/carta.h" />
+		<Unit filename="include/jugada.h" />
+		<Unit filename="include/jugador.h" />
+		<Unit filename="include/mano.h" />
+		<Unit filename="include/mazo.h" />
+		<Unit filename="include/ranking.h" />
+		<Unit filename="include/tipoJugador.h" />
+		<Unit filename="include/tipoPoder.h" />
+		<Unit filename="include/utils/colaDinamica.h" />
+		<Unit filename="include/utils/listaSimple.h" />
+		<Unit filename="include/utils/menu.h" />
+		<Unit filename="lib/conectarAPI.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib/conectarAPI.h" />
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/IA.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/carta.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/jugada.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/jugador.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/mano.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/mazo.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/partida.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/ranking.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/utils/colaDinamica.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/utils/listaSimple.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/utils/menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Extensions>
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
