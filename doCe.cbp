@@ -75,6 +75,9 @@
 		<Unit filename="src/ranking.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="src/tipoJugador.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="src/utils/colaDinamica.c">
 			<Option compilerVar="CC" />
 		</Unit>

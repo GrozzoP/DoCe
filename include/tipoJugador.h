@@ -11,4 +11,6 @@ typedef struct {
    tMano mano;
 } tJugador;
 
+signed char buscar_carta_en_mano(const tJugador* j, tPoder PODER);
+
 #endif // TIPOJUGADOR_H_INCLUDED
