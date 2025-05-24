@@ -1,24 +1,24 @@
 #include "../../include/utils/listaSimple.h"
 
-void crearLista(tLista* lista)
+void crear_lista(tLista* lista)
 {
     *lista = NULL;
 }
 
-int listaVacia(const tLista* lista)
+int lista_vacia(const tLista* lista)
 {
     return *lista == NULL?	 LISTA_VACIA: LISTA_CONTIENE_DATOS;
 }
 
-int listaLLena(const tLista* lista, unsigned tam)
+int lista_llena(const tLista* lista, unsigned tam)
 {
     return LISTA_NO_LLENA;
 }
 
-int ponerAlComienzoLista(tLista* lista, const void* dato, unsigned tam)
+int poner_al_comienzo_lista(tLista* lista, const void* dato, unsigned tam)
 {
     tNodo* nuevoNodo = malloc(sizeof nuevoNodo);
-    if( (NULL == nuevoNodo) || (nuevoNodo->dato = malloc(tam)) == NULL )
+    if((NULL == nuevoNodo) || (nuevoNodo->dato = malloc(tam)) == NULL )
     {
         free(nuevoNodo);
         return 0;
@@ -32,7 +32,7 @@ int ponerAlComienzoLista(tLista* lista, const void* dato, unsigned tam)
     return LISTA_TODO_OK;
 }
 
-void vaciarLista(tLista* lista)
+void vaciar_lista(tLista* lista)
 {
     while (*lista)
     {
@@ -43,7 +43,7 @@ void vaciarLista(tLista* lista)
     }
 }
 
-int sacarPrimeroLista(tLista* lista, void* dato, unsigned tam)
+int sacar_primero_lista(tLista* lista, void* dato, unsigned tam)
 {
     if (NULL == *lista)
         return LISTA_VACIA;
@@ -57,22 +57,64 @@ int sacarPrimeroLista(tLista* lista, void* dato, unsigned tam)
     return LISTA_TODO_OK;
 }
 
-int verPrimeroLista(const tLista* lista, void* dato, unsigned tam)
+int ver_primero_lista(const tLista* lista, void* dato, unsigned tam)
 {
 	if (NULL == *lista)
 		return LISTA_VACIA;
+
 	memcpy(dato, (*lista)->dato, MIN(tam, (*lista)->tam));
 
 	return LISTA_TODO_OK;
 }
 
-int mapLista(const tLista* lista, int (*func)(void* dato, void* param), void* param)
+void recorrer_lista(const tLista* lista, tMostrar mostrar)
 {
-	int ret;
+    mostrar(NULL);
+    while(*lista)
+    {
+        mostrar((*lista)->dato);
+        lista = &(*lista)->sig;
+    }
+}
+
+int insertar_ordenado_sin_duplicados_desc(tLista* lista, const void* dato, unsigned tam, void* parametro, tComparar comparar, tAccion accion)
+{
+    tNodo* nodoNuevo;
+    int comparacion;
+
+    while(*lista && (comparacion = comparar((*lista)->dato, dato)) > 0)
+        lista = &(*lista)->sig;
+
+    if(*lista && comparacion == 0)
+    {
+        accion((*lista)->dato, parametro);
+        return LISTA_INSERCION_DUPLICADO;
+    }
+
+    if((nodoNuevo = (tNodo*)malloc(sizeof(tNodo))) == NULL ||
+       (nodoNuevo->dato = malloc(tam)) == NULL)
+    {
+        free(nodoNuevo);
+        return LISTA_LLENA;
+    }
+
+    memcpy(nodoNuevo->dato, dato, tam);
+    nodoNuevo->tam = tam;
+
+    nodoNuevo->sig = *lista;
+    *lista = nodoNuevo;
+
+    return LISTA_TODO_OK;
+}
+
+int map_lista(tLista* lista, tAccion accion, void* param)
+{
+	if(accion == NULL)
+        return ACCION_NULA;
+
 	while (*lista)
 	{
-		if((ret = func((*lista)->dato, param)))
-			return ret;
+	    accion((*lista)->dato, param);
 		lista = &(*lista)->sig;
 	}
 

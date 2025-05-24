@@ -1,6 +1,6 @@
 #include "../../include/utils/colaDinamica.h"
 
-void crearCola(tCola* cola)
+void crear_cola(tCola* cola)
 {
     cola->pri = cola->ult = NULL;
 }
@@ -53,7 +53,7 @@ int desEnColar(tCola* cola, void* dato, unsigned tam)
     return COLA_TODO_OK;
 }
 
-int verPrimero(tCola* cola, void* dato, unsigned tam)
+int ver_primero(tCola* cola, void* dato, unsigned tam)
 {
     if (!cola->pri)
         return COLA_VACIA;
@@ -63,7 +63,7 @@ int verPrimero(tCola* cola, void* dato, unsigned tam)
     return COLA_TODO_OK;
 }
 
-int colaLlena(const tCola* cola, unsigned tam)
+int cola_llena(const tCola* cola, unsigned tam)
 {
     tNodo* nue = (tNodo*)malloc(sizeof(tNodo));
 
@@ -84,12 +84,12 @@ int colaLlena(const tCola* cola, unsigned tam)
     return COLA_NO_LLENA;
 }
 
-int colaVacia(const tCola* cola)
+int cola_vacia(const tCola* cola)
 {
     return cola->pri == NULL?  COLA_VACIA: COLA_CONTIENE_DATOS;
 }
 
-void vaciarCola(tCola* cola)
+void vaciar_cola(tCola* cola)
 {
     tNodo* elim;
 
@@ -105,7 +105,8 @@ void vaciarCola(tCola* cola)
 }
 
 
-int consumirCola(tCola* cola,  int (*func)(void* dato, void* param), void* param){
+int consumir_cola(tCola* cola,  int (*func)(void* dato, void* param), void* param)
+{
 	tNodo* elim = cola->pri;
 	if (!elim)	return COLA_VACIA;
 

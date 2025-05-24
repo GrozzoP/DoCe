@@ -1,7 +1,7 @@
 #ifndef LISTASIMPLE_H_INCLUDED
 #define LISTASIMPLE_H_INCLUDED
 
-enum{LISTA_TODO_OK, LISTA_LLENA, LISTA_NO_LLENA, LISTA_VACIA, LISTA_CONTIENE_DATOS};
+enum{LISTA_TODO_OK, LISTA_LLENA, LISTA_NO_LLENA, LISTA_VACIA, LISTA_CONTIENE_DATOS, LISTA_INSERCION_DUPLICADO, ACCION_NULA};
 
 #include <stdlib.h>
 #include <string.h>
@@ -17,14 +17,20 @@ typedef struct sNodo
 
 typedef tNodo* tLista;
 
-void crearLista(tLista* lista);
-void vaciarLista(tLista* lista);
-int listaVacia(const tLista* lista);
-int listaLLena(const tLista* lista, unsigned tam);
-int ponerAlComienzoLista(tLista* lista, const void* dato, unsigned tam);
-int sacarPrimeroLista(tLista* lista, void* dato, unsigned tam);
-int verPrimeroLista(const tLista* lista, void* dato, unsigned tam);
+typedef int (tComparar)(const void*, const void*);
+typedef void (tAccion)(void*, void*);
+typedef void (tMostrar)(const void*);
 
-int mapLista(const tLista* lista, int (*func)(void* dato, void* param), void* param);
+void crear_lista(tLista* lista);
+void vaciar_lista(tLista* lista);
+int lista_vacia(const tLista* lista);
+int lista_llena(const tLista* lista, unsigned tam);
+int poner_al_comienzo_lista(tLista* lista, const void* dato, unsigned tam);
+int sacar_primero_lista(tLista* lista, void* dato, unsigned tam);
+int ver_primero_lista(const tLista* lista, void* dato, unsigned tam);
+void recorrer_lista(const tLista* lista, tMostrar mostrar);
+int insertar_ordenado_sin_duplicados_desc(tLista* lista, const void* dato, unsigned tam, void* parametro, tComparar comparar, tAccion accion);
+
+int map_lista(tLista* lista, tAccion accion, void* param);
 
 #endif // LISTASIMPLE_H_INCLUDED
