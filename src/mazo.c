@@ -44,7 +44,7 @@ void descartar_carta_mano(tLista * masoB,tJugador * jugador,int pos,int cantCart
 {
     _remezclar_mazo(&jugador->mano.mano[pos],masoB,cantCartas);
 }
-void cargarMano(tJugador * py,tLista * lista)
+void cargar_mano(tJugador * py,tLista * lista)
 {
     int i;
     for(i=0;i<3;i++)

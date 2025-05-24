@@ -14,7 +14,6 @@
 #define		CANT_PUNTOS		12
 /*
 enum Perfiles{
-	HUMANO,
 	IA_FACIL,
 	IA_NORMAL,
 	IA_DIFICIL,
@@ -22,7 +21,6 @@ enum Perfiles{
 	CANT_PERFILES
 };*/
 __attribute__((unused)) static const char* STRING_PERFILES[] = {
-	TO_STRING(HUMANO),
 	TO_STRING(IA_FACIL),
 	TO_STRING(IA_NORMAL),
 	TO_STRING(IA_DIFICIL)

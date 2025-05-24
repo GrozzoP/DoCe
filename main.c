@@ -1,9 +1,10 @@
-#include <stdio.h>
+#include "include/partida.h"
+/*#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include <string.h>*/
 #include "include/ranking.h"
 
 int main() {
-    verRanking(API_URL_CON_CODIGO);
-    return 0;
+//    verRanking(API_URL_CON_CODIGO);
+    return juegoDOCE();
 }

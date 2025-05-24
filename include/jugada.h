@@ -5,8 +5,8 @@
 
 typedef struct {
     unsigned nroJugada;
-    char* nombreJugador;
-    char* cartaJugada;
+    char nombreJugador[TAM_CAD];
+    char cartaJugada[13];
     int puntajeAcumulado;
 } tJugada;
 

@@ -17,7 +17,7 @@ int lista_llena(const tLista* lista, unsigned tam)
 
 int poner_al_comienzo_lista(tLista* lista, const void* dato, unsigned tam)
 {
-    tNodo* nuevoNodo = malloc(sizeof nuevoNodo);
+    tNodo* nuevoNodo =(tNodo*)malloc(sizeof(tNodo));
     if((NULL == nuevoNodo) || (nuevoNodo->dato = malloc(tam)) == NULL )
     {
         free(nuevoNodo);

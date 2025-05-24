@@ -5,7 +5,7 @@ int obtener_pos_carta_IAdificil(tJugador * ia,tCarta * ultima_carta,int puntaje_
 {
     int pos_espejo,pos1,pos2;
     printf("IA Seleccionando carta.....");
-    Sleep(2000);
+    Sleep(1000);
             if (ultima_carta != NULL && (pos_espejo = buscar_carta_en_mano(ia, ESPEJO)) != -1 && (ultima_carta->tipoPoder == RESTAR_2 || ultima_carta->tipoPoder == RESTAR_1)) /// busca una carta espejo en su mano
             {/// mira si la ultima carta que tiro el jugador es de restar puntos
                     /// si tiene una carta espejo, la tira
@@ -98,7 +98,7 @@ int obtener_pos_carta_IAnormal(tJugador * ia,tCarta * ultima_carta,int puntaje_j
 {
     int pos1,cantBucle=0;
     printf("IA Seleccionando carta.....");
-    Sleep(2000);
+    Sleep(1000);
     if (ia->puntajeAcumulado >= 8)  /// si la ia esta por ganar: busca cartas de sumar puntos
             {
                 if ((pos1 = buscar_carta_en_mano(ia, SUMAR_2)) != -1)
@@ -124,6 +124,6 @@ int obtener_pos_carta_IAnormal(tJugador * ia,tCarta * ultima_carta,int puntaje_j
 int obtener_pos_carta_IAfacil(tJugador * ia,tCarta * ultima_carta,int puntaje_jugador)
 {
     printf("IA Seleccionando carta.....");
-    Sleep(2000);
+    Sleep(1000);
     return rand()%3;
 }
