@@ -1,8 +1,12 @@
 #ifndef TIPOJUGADOR_H_INCLUDED
 #define TIPOJUGADOR_H_INCLUDED
 
-#include "mano.h"
+#include <stdio.h>
+#include <windows.h>
+#include <stdlib.h>
+#include <time.h>
 
+#include "mano.h"
 #define TAM_CAD 50
 
 typedef struct {
@@ -11,6 +15,5 @@ typedef struct {
    tMano mano;
 } tJugador;
 
-signed char buscar_carta_en_mano(const tJugador* j, tPoder PODER);
-
+int buscar_carta_en_mano(tJugador* jugador, tPoder PODER);
 #endif // TIPOJUGADOR_H_INCLUDED
