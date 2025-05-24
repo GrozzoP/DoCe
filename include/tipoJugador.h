@@ -16,4 +16,5 @@ typedef struct {
 } tJugador;
 
 int buscar_carta_en_mano(tJugador* jugador, tPoder PODER);
+
 #endif // TIPOJUGADOR_H_INCLUDED

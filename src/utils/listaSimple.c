@@ -120,3 +120,23 @@ int map_lista(tLista* lista, tAccion accion, void* param)
 
 	return LISTA_TODO_OK;
 }
+int poner_en_lista_pos(tLista * pL,const void * dato,unsigned cantBytes,unsigned pos)
+{
+    int i=0;
+    tNodo * nuevoNodo=(tNodo*)malloc(sizeof(tNodo));
+    if( (NULL == nuevoNodo) || (nuevoNodo->dato=malloc(cantBytes)) == NULL )
+    {
+        free(nuevoNodo);
+        return LISTA_LLENA;
+    }
+    memcpy(nuevoNodo->dato,dato,cantBytes);
+    nuevoNodo->tam=cantBytes;
+    while( *pL && i<pos  )
+    {
+        i++;
+        pL=&(*pL)->sig;
+    }
+    nuevoNodo->sig=*pL;
+    *pL=nuevoNodo;
+    return LISTA_TODO_OK;
+}
