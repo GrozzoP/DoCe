@@ -21,14 +21,14 @@ typedef struct
     tNodo* ult;
 } tCola;
 
-void crearCola(tCola* cola);
+void crear_cola(tCola* cola);
 int enColar(tCola* cola, const void* dato, unsigned tam);
 int desEnColar(tCola* cola, void* dato, unsigned tam);
-int verPrimero(tCola* cola, void* dato, unsigned tam);
-int colaLlena(const tCola* cola, unsigned tam);
-int colaVacia(const tCola* cola);
-void vaciarCola(tCola* cola);
+int ver_primero(tCola* cola, void* dato, unsigned tam);
+int cola_llena(const tCola* cola, unsigned tam);
+int cola_vacia(const tCola* cola);
+void vaciar_cola(tCola* cola);
 
-int consumirCola(tCola* cola, int (*func)(void* dato, void* param), void* param);
+int consumir_cola(tCola* cola, int (*func)(void* dato, void* param), void* param);
 
 #endif // COLADINAMICA_H_INCLUDED
