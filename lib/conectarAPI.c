@@ -3,7 +3,7 @@
 /* Si no se usa esta funcion, por default, la libreria utiliza fwrite(),
    su implementacion es necesaria para controlar la reserva de la memoria e
    informar en caso de no exito en el malloc. */
-/*
+
 size_t WriteMemoryCallback(void* contenido, size_t tam, size_t nmemb, void* usuario)
 {
   size_t tamReal = tam * nmemb;
@@ -24,7 +24,7 @@ size_t WriteMemoryCallback(void* contenido, size_t tam, size_t nmemb, void* usua
   return tamReal;
 }
 
-CURLcode peticionGET(tRespuesta* respuesta, const char* URL)
+CURLcode peticion_GET(tRespuesta* respuesta, const char* URL)
 {
     CURLcode codRespuesta;
     CURL* curl;
@@ -69,7 +69,7 @@ CURLcode peticionGET(tRespuesta* respuesta, const char* URL)
     return codRespuesta;
 }
 
-CURLcode peticionPOST(tRespuesta* respuesta, const char* URL, const char* JSON)
+CURLcode peticion_POST(tRespuesta* respuesta, const char* URL, const char* JSON)
 {
     CURLcode codRespuesta;
     CURL* curl;
@@ -114,7 +114,7 @@ CURLcode peticionPOST(tRespuesta* respuesta, const char* URL, const char* JSON)
     return codRespuesta;
 }
 
-CURLcode enviarJugadorJSON(const tJugador* jugador)
+CURLcode enviar_jugador_JSON(const tJugador* jugador)
 {
     char JSON[MAX_JSON];
     tRespuesta respuesta;
@@ -126,6 +126,5 @@ CURLcode enviarJugadorJSON(const tJugador* jugador)
     ((jugador->puntajeAcumulado) >= 12) ? 1 : 0
     );
 
-    return peticionPOST(&respuesta, API_URL_BASE, JSON);
+    return peticion_POST(&respuesta, API_URL_BASE, JSON);
 }
-*/
