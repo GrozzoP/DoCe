@@ -54,7 +54,7 @@ void descartar_mano(tJugador * py,tLista * lista)
 {
     int i;
 //    printf("\nJugador:[%s]\nCartasSobreantes:\n",py->nombre);
-    printf("----------------\n");
+//    printf("----------------\n");
     for(i=0;i<3;i++)
     {
         if(strcmp(obtener_stringPoder(&py->mano.mano[i])," ")!=0)

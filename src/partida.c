@@ -36,31 +36,33 @@ void asignar_puntos(tJugador * jugPrincipal,tJugador * jugContrincante,tCarta * 
 }
 void imprimir_turnos(tCola * cola_regTurnos,FILE*pf)
 {
-    int primera_vez=0;
     tJugada jugada;
     while(desEnColar(cola_regTurnos,&jugada,sizeof(tJugada))!= COLA_VACIA)
     {
-        if(primera_vez==0)
+        if(jugada.nroJugada == 1)
         {
-            fprintf(pf,"TURNO|JUGADOR             |CARTA SELECCIONADA|PUNTOS AL MOMENTO \n");
-            primera_vez++;
-        }else
-        {
-            fprintf(pf,"%5d|%20s|%18s|%-2d \n",jugada.nroJugada,jugada.nombreJugador,jugada.cartaJugada,jugada.puntajeAcumulado);
+            fprintf(pf,"%-8s|%-25s|%-25s|%-25s|%-25s\n","TURNO","CARTA SELECCIONADA","CARTA SELECCIONADA","PUNTOS AL MOMENTO","PUNTOS AL MOMENTO");
+            fprintf(pf,"%-8s|%-25s|%-25s|%-25s|%-25s\n","JUGADOR",jugada.nombreJugador[0],jugada.nombreJugador[1],jugada.nombreJugador[0],jugada.nombreJugador[1]);
         }
+        fprintf(pf,"%8d|%-25s|%-25s|%-25d|%-25d\n",jugada.nroJugada,jugada.cartaJugada_primer_jugador,jugada.cartaJugada_segundo_jugador,jugada.puntajeAcumulado_primer_jugador,jugada.puntajeAcumulado_segundo_jugador);
     }
 }
-void almacenar_turno(tCola * cola_regTurnos,tJugador * primer_jugador,tCarta carta_primer_jugador,int turno)
+void almacenar_turno(tCola * cola_regTurnos,tJugador * primer_jugador,tJugador * segundo_jugador,tCarta carta_primer_jugador,tCarta carta_segundo_jugador,int turno)
 {
-    tJugada primera_jugada;
+    tJugada reg_jugada;
 
-    strcpy(primera_jugada.nombreJugador,primer_jugador->nombre);
-    strcpy(primera_jugada.cartaJugada,obtener_stringPoder(&carta_primer_jugador));
-    primera_jugada.puntajeAcumulado=primer_jugador->puntajeAcumulado;
-    primera_jugada.nroJugada=turno;
+    reg_jugada.nombreJugador[0]=primer_jugador->nombre;
+    reg_jugada.nombreJugador[1]=segundo_jugador->nombre;
 
-    enColar(cola_regTurnos,&primera_jugada,sizeof(tJugada));
+    strcpy(reg_jugada.cartaJugada_primer_jugador,obtener_stringPoder(&carta_primer_jugador));
+    strcpy(reg_jugada.cartaJugada_segundo_jugador,obtener_stringPoder(&carta_segundo_jugador));
 
+    reg_jugada.puntajeAcumulado_primer_jugador=primer_jugador->puntajeAcumulado;
+    reg_jugada.puntajeAcumulado_segundo_jugador=segundo_jugador->puntajeAcumulado;
+
+    reg_jugada.nroJugada=turno;
+
+    enColar(cola_regTurnos,&reg_jugada,sizeof(tJugada));
 }
 void procesar_partida(tLista * masoA,tLista * masoB,tCola * cola_regTurnos,tJugador *primer_jugador,tJugador * segundo_jugador,int * cantidadCartas,int posIA,ACCION POS_IA)
 {
@@ -86,7 +88,7 @@ void procesar_partida(tLista * masoA,tLista * masoB,tCola * cola_regTurnos,tJuga
         pedir_carta_maso(masoA,primer_jugador,pos);
         if(carta_primer_jugador.tipoPoder == REPETIR_TURNO)
         {
-            almacenar_turno(cola_regTurnos,primer_jugador,carta_primer_jugador,turno);
+            almacenar_turno(cola_regTurnos,primer_jugador,segundo_jugador,carta_primer_jugador,vacia,turno);
             system("CLS");
             vistas_juego(primer_jugador,segundo_jugador,&carta_primer_jugador,&vacia,*cantidadCartas);
         }
@@ -109,7 +111,7 @@ void procesar_partida(tLista * masoA,tLista * masoB,tCola * cola_regTurnos,tJuga
         pedir_carta_maso(masoA,segundo_jugador,pos);
         if(carta_segundo_jugador.tipoPoder == REPETIR_TURNO)
         {
-            almacenar_turno(cola_regTurnos,segundo_jugador,carta_segundo_jugador,turno);
+            almacenar_turno(cola_regTurnos,primer_jugador,segundo_jugador,carta_primer_jugador,carta_segundo_jugador,turno);
             system("CLS");
             vistas_juego(primer_jugador,segundo_jugador,&carta_primer_jugador,&carta_segundo_jugador,*cantidadCartas);
         }
@@ -117,8 +119,7 @@ void procesar_partida(tLista * masoA,tLista * masoB,tCola * cola_regTurnos,tJuga
 
     asignar_puntos(primer_jugador,segundo_jugador,&carta_primer_jugador,&carta_segundo_jugador);
 
-    almacenar_turno(cola_regTurnos,primer_jugador,carta_primer_jugador,turno);
-    almacenar_turno(cola_regTurnos,segundo_jugador,carta_segundo_jugador,turno);
+    almacenar_turno(cola_regTurnos,primer_jugador,segundo_jugador,carta_primer_jugador,carta_segundo_jugador,turno);
 
     turno++;
     system("CLS");
@@ -134,15 +135,27 @@ void partida(tLista * masoA,tLista * masoB,tCola * cola_regTurnos,tJugador * pri
     if(strcmpi(primer_jugador->nombre,STRING_PERFILES[IA_DIFICIL])==0 || strcmpi(segundo_jugador->nombre,STRING_PERFILES[IA_DIFICIL])==0)
         procesar_partida(masoA,masoB,cola_regTurnos,primer_jugador,segundo_jugador,cantidadCartas,posIA,obtener_pos_carta_IAdificil);
 }
+
+void crear_archivo_informes(FILE ** pInforme)
+{
+    char hora[32],nombre_reg[37];
+    time_t fecha=time(NULL);
+    struct tm *hora_local=localtime(&fecha);
+    strftime(hora,sizeof(hora),"informe-juego_%Y-%m-%d-%H-%M",hora_local);
+    snprintf(nombre_reg,sizeof(nombre_reg),"%s.txt",hora);
+    *pInforme=fopen(nombre_reg,"wt");
+}
 int juegoDOCE()
 {
+    FILE*pfRegistros;
     tLista masoA,masoB;
     tCola cola_regTurnos;
     int vecesVaciado=0,
         cantidadCartas=0,
         posIA;
     tJugador jug[2];
-    FILE*pfRegistros=fopen("REGISTROS.txt","wt");
+
+    crear_archivo_informes(&pfRegistros);
     if(!pfRegistros)
         return -5;
 
