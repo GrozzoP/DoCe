@@ -1,15 +1,16 @@
 #include "../include/jugador.h"
-
+#define TAM_NOM 25
 void _cargarJugador(tJugador * py)
 {
-    char nomb[25];
+    char *nomb=(char*)malloc(sizeof(char)*TAM_NOM);
     do{
-        printf("Ingrese Nombre:");
-    }while(fgets(nomb,25,stdin)== NULL);
+        printf("Ingrese Nombre: ");
+    }while(!scanf("%s",nomb));
+
     nomb[strcspn(nomb, "\n")] = '\0';
     strcpy(py->nombre,nomb);
     py->puntajeAcumulado=0;//pone por defecto 0 los puntos al jugador
-    system("CLS");
+    free(nomb);
 }
 
 void _cargarIA(tJugador * py)
@@ -38,27 +39,36 @@ void _cargarIA(tJugador * py)
 int cargar_jugador(tJugador* jugA, tJugador* jugB)
 {
     srand(time(NULL));
+
     int res=rand()%2;
+
     if(res==0)
     {
         _cargarJugador(jugB);
+
         _cargarIA(jugA);
+
         return res;
     }
     else
     {
         _cargarJugador(jugA);
+
         _cargarIA(jugB);
+
         return res;
     }
-    return TODO_OK;
+    return -1;
 }
 int obtener_pos_carta_jugador()
 {
   /*  int pos;
-    printf("\nSeleccione Carta:");
-    scanf("%d",&pos);
-    return pos-1;*/
+    do{
+        printf("\nSeleccione Carta:");
+        scanf("%d",&pos);
+        pos--;
+    }while(pos>2 || pos<0)
+    return pos;*/
     return rand()%3;
 
 }

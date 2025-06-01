@@ -3,7 +3,6 @@
 void mostrar_jugador_API(const void* dato)
 {
     tJugadorAPI* jugadorAPI = (tJugadorAPI*)dato;
-
     if(jugadorAPI == NULL)
         printf("%-20s %-20s\n", "Nombre", "Partidas Ganadas");
     else
@@ -83,7 +82,7 @@ int ver_ranking(const char* url)
 
     while(!parsear_jugador(&res, &jugador))
         insertar_ordenado_sin_duplicados_desc(&lista, &jugador, sizeof(tJugadorAPI), NULL, comparar_jugador_API, NULL);
-
+    printf("Ranking Historico\n\n");
     recorrer_lista(&lista, mostrar_jugador_API);
 
     free(res.info);

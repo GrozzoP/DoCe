@@ -34,10 +34,13 @@ int cargar_carta_lista_random(tLista* pL, const char* nombArch)
     return TODO_OK;
 }
 
-void pedir_carta_maso(tLista * masoA,tJugador * jugador,int pos)
+int pedir_carta_maso(tLista * masoA,tJugador * jugador,int pos)
 {
     if(lista_vacia(masoA) != LISTA_VACIA)
         sacar_primero_lista(masoA,&jugador->mano.mano[pos],sizeof(tCarta));
+    else
+        return LISTA_VACIA;
+return TODO_OK;
 }
 
 void _remezclar_mazo(const tCarta * val,tLista *pL,unsigned cantCartas)

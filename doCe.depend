@@ -212,3 +212,127 @@
 
 1748731986 c:\users\usuario\downloads\doce-logicajuego\doce-logicajuego\include\utils\comun.h
 
+1748120530 source:n:\algoritmotp\doce\lib\conectarapi.c
+	"conectarAPI.h"
+
+1748120530 n:\algoritmotp\doce\lib\conectarapi.h
+	<curl/curl.h>
+	"../include/jugador.h"
+
+1748795862 n:\algoritmotp\doce\include\jugador.h
+	<stdio.h>
+	<string.h>
+	"tipoJugador.h"
+	"IA.h"
+
+1748124337 n:\algoritmotp\doce\include\tipojugador.h
+	<stdio.h>
+	<windows.h>
+	<stdlib.h>
+	<time.h>
+	"mano.h"
+
+1748119418 n:\algoritmotp\doce\include\mano.h
+	"carta.h"
+
+1748781785 n:\algoritmotp\doce\include\carta.h
+	<string.h>
+	"tipoPoder.h"
+	"../config.h"
+	"utils/comun.h"
+
+1747684769 n:\algoritmotp\doce\include\tipopoder.h
+
+1748794149 n:\algoritmotp\doce\config.h
+
+1748781785 n:\algoritmotp\doce\include\utils\comun.h
+
+1748781785 n:\algoritmotp\doce\include\ia.h
+	"tipoJugador.h"
+
+1748797652 source:n:\algoritmotp\doce\main.c
+	"include/utils/menu.h"
+
+1748796152 n:\algoritmotp\doce\include\partida.h
+	<stdio.h>
+	<ctype.h>
+	<time.h>
+	<conio.h>
+	"utils/colaDinamica.h"
+	"utils/vistas.h"
+	"mazo.h"
+	"jugada.h"
+	"jugador.h"
+	"../config.h"
+
+1748682507 n:\algoritmotp\doce\include\utils\coladinamica.h
+	<string.h>
+	<stdlib.h>
+
+1748794564 n:\algoritmotp\doce\include\utils\vistas.h
+	"../tipoJugador.h"
+
+1748791240 n:\algoritmotp\doce\include\mazo.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"tipoJugador.h"
+	"utils/listaSimple.h"
+	"../config.h"
+
+1748120529 n:\algoritmotp\doce\include\utils\listasimple.h
+	<stdlib.h>
+	<string.h>
+
+1748687999 n:\algoritmotp\doce\include\jugada.h
+	"carta.h"
+
+1748781785 n:\algoritmotp\doce\include\ranking.h
+	"../lib/conectarAPI.h"
+	"utils/listaSimple.h"
+	"utils/comun.h"
+
+1748120530 source:n:\algoritmotp\doce\src\carta.c
+	"../include/carta.h"
+
+1747433239 source:n:\algoritmotp\doce\src\jugada.c
+
+1748120530 source:n:\algoritmotp\doce\src\mano.c
+	"../include/mano.h"
+
+1748682509 source:n:\algoritmotp\doce\src\utils\coladinamica.c
+	"../../include/utils/colaDinamica.h"
+
+1748682509 source:n:\algoritmotp\doce\src\utils\listasimple.c
+	"../../include/utils/listaSimple.h"
+
+1748797686 source:n:\algoritmotp\doce\src\utils\menu.c
+	"../../include/utils/menu.h"
+
+1748781785 source:n:\algoritmotp\doce\src\ia.c
+	"../include/IA.h"
+
+1748796890 source:n:\algoritmotp\doce\src\jugador.c
+	"../include/jugador.h"
+
+1748791204 source:n:\algoritmotp\doce\src\mazo.c
+	"../include/mazo.h"
+
+1748797759 source:n:\algoritmotp\doce\src\partida.c
+	"../include/partida.h"
+
+1748795093 source:n:\algoritmotp\doce\src\ranking.c
+	"../include/ranking.h"
+
+1748781786 source:n:\algoritmotp\doce\src\tipojugador.c
+	"../include/tipoJugador.h"
+
+1748798196 source:n:\algoritmotp\doce\src\utils\vistas.c
+	"../../include/mazo.h"
+
+1748793831 n:\algoritmotp\doce\include\utils\menu.h
+	"../../config.h"
+	"../ranking.h"
+	"../partida.h"
+	"vistas.h"
+
