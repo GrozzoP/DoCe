@@ -92,7 +92,7 @@ void procesar_partida(tLista* mazoA, tLista* mazoB,tCola* cola_regTurnos, tJugad
                 pos = POS_IA(primer_jugador, NULL, segundo_jugador->puntajeAcumulado);
             else
                 pos = obtener_pos_carta_jugador();
-            carta_primer_jugador=primer_jugador->mano.mano[pos];
+            carta_primer_jugador = primer_jugador->mano.mano[pos];
 
             vistas_juego(primer_jugador, segundo_jugador, &carta_primer_jugador, &vacia, cantidadCartas);
 
@@ -216,12 +216,14 @@ int juegoDOCE()
     if(jug[0].puntajeAcumulado > 11)
     {
         printf("\nJugador ganador: [%s]\nPuntos obtenidos:%d\n", jug[0].nombre,jug[0].puntajeAcumulado);
-        //aca iria la api pero si solo no es ia
+       if(strncmp("IA_",jug[0].nombre,3)!=0)
+            enviar_jugador_JSON(&jug[0]);
     }
     else
     {
         printf("\nJugador ganador: [%s]\nPuntos obtenidos:%d\n", jug[1].nombre,jug[1].puntajeAcumulado);
-        //aca iria la api pero si solo no es ia
+        if(strncmp("IA_",jug[1].nombre,3)!=0)
+            enviar_jugador_JSON(&jug[1]);
     }
 
     printf("\n---------------------------------\n");

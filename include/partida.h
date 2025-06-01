@@ -12,6 +12,7 @@
 #include "jugada.h"
 #include "jugador.h"
 #include "../config.h"
+#include "../lib/conectarAPI.h"
 
 typedef int(*ACCION)(tJugador* ia, tCarta * ultima_carta, int puntaje_jugador);
 void intercambiar_mazos(tLista * mazoA,tLista * mazoB,int * CantidadCartas);
