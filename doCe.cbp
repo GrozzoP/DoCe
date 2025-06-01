@@ -38,12 +38,15 @@
 		<Unit filename="include/jugador.h" />
 		<Unit filename="include/mano.h" />
 		<Unit filename="include/mazo.h" />
+		<Unit filename="include/partida.h" />
 		<Unit filename="include/ranking.h" />
 		<Unit filename="include/tipoJugador.h" />
 		<Unit filename="include/tipoPoder.h" />
 		<Unit filename="include/utils/colaDinamica.h" />
+		<Unit filename="include/utils/comun.h" />
 		<Unit filename="include/utils/listaSimple.h" />
 		<Unit filename="include/utils/menu.h" />
+		<Unit filename="include/utils/vistas.h" />
 		<Unit filename="lib/conectarAPI.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -85,6 +88,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src/utils/menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/utils/vistas.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>

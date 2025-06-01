@@ -5,9 +5,7 @@
 #include "tipoPoder.h"
 #include "../config.h"
 
-#define ERROR_SOBRECARGA_CARTAS -100
-#define ERROR_OBTENER_TIPOPODER_SEGUN_CARTA -10
-
+#include "utils/comun.h"
 
 typedef struct
 {

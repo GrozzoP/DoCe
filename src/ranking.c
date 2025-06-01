@@ -18,17 +18,17 @@ int comparar_jugador_API(const void* a, const void* b)
     return a_jugador.cantidadPartidasGanadas - b_jugador.cantidadPartidasGanadas;
 }
 
-int parsearJugador(tRespuesta* res, tJugadorAPI* jugador)
+int parsear_jugador(tRespuesta* res, tJugadorAPI* jugador)
 {
     char* pJsonPosterior, *pJsonAnterior, *nombre;
 
     if(!(res->info))
-        return -1;
+        return SIN_MEM;
 
     nombre = malloc(TAM_NOMBRE);
 
     if(!nombre)
-        return -1;
+        return SIN_MEM;
 
     // Este puntero siempre apuntara a una direccion mayor, sera mi referencia HASTA donde debo leer
     pJsonPosterior = res->info;
@@ -38,7 +38,7 @@ int parsearJugador(tRespuesta* res, tJugadorAPI* jugador)
     pJsonPosterior = strrchr(res->info, '}');
 
     if(!pJsonPosterior)
-        return -1;
+        return CHAR_NO_ENCONTRADO;
 
     // Como se que no piso un dato, pongo el sentinela para copiar mas adelante
     *pJsonPosterior = '\0';
@@ -67,10 +67,10 @@ int parsearJugador(tRespuesta* res, tJugadorAPI* jugador)
     pJsonPosterior = strrchr(res->info, '{');
     *pJsonPosterior = '\0';
 
-    return 0;
+    return TODO_OK;
 }
 
-int verRanking(const char* url)
+int ver_ranking(const char* url)
 {
     tRespuesta res;
     tJugadorAPI jugador;
@@ -81,7 +81,7 @@ int verRanking(const char* url)
 
     crear_lista(&lista);
 
-    while(!parsearJugador(&res, &jugador))
+    while(!parsear_jugador(&res, &jugador))
         insertar_ordenado_sin_duplicados_desc(&lista, &jugador, sizeof(tJugadorAPI), NULL, comparar_jugador_API, NULL);
 
     recorrer_lista(&lista, mostrar_jugador_API);
@@ -89,5 +89,5 @@ int verRanking(const char* url)
     free(res.info);
     vaciar_lista(&lista);
 
-    return 0;
+    return TODO_OK;
 }

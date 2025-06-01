@@ -1,13 +1,15 @@
 #include "../include/mazo.h"
 
-int cargar_carta_lista_random(tLista * pL,const char * nombArch)
+int cargar_carta_lista_random(tLista* pL, const char* nombArch)
 {
     tCarta aux;
     char carta[14];
     unsigned cantCartas=0;
-    FILE * pf=fopen(nombArch,"rt");
+    FILE* pf = fopen(nombArch,"rt");
+
     if(!pf)
-        return 0;
+        return ERROR_ARCHIVO;
+
     while(fscanf(pf,"%13s",carta)==1)
     {
         cantCartas++;
@@ -27,29 +29,34 @@ int cargar_carta_lista_random(tLista * pL,const char * nombArch)
         }
         poner_en_lista_pos(pL,&aux,sizeof(tCarta),rand()%cantCartas);
     }
-    fclose(pf);
-    return 1;
 
+    fclose(pf);
+    return TODO_OK;
 }
+
 void pedir_carta_maso(tLista * masoA,tJugador * jugador,int pos)
 {
     if(lista_vacia(masoA) != LISTA_VACIA)
         sacar_primero_lista(masoA,&jugador->mano.mano[pos],sizeof(tCarta));
 }
+
 void _remezclar_mazo(const tCarta * val,tLista *pL,unsigned cantCartas)
 {
         poner_en_lista_pos(pL,val,sizeof(tCarta),rand()%cantCartas);
 }
+
 void descartar_carta_mano(tLista * masoB,tJugador * jugador,int pos,int cantCartas)
 {
     _remezclar_mazo(&jugador->mano.mano[pos],masoB,cantCartas);
 }
+
 void cargar_mano(tJugador * py,tLista * lista)
 {
     int i;
     for(i=0;i<3;i++)
         sacar_primero_lista(lista,&py->mano.mano[i],sizeof(tCarta));
 }
+
 void descartar_mano(tJugador * py,tLista * lista)
 {
     int i;

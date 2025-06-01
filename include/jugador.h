@@ -10,7 +10,7 @@
 
 void _cargarJugador(tJugador * py);
 void _cargarIA(tJugador * py);
-int cargarJugador(tJugador * jugA,tJugador * jugB);
+int cargar_jugador(tJugador * jugA,tJugador * jugB);
 int obtener_pos_carta_jugador();
 
 #endif // JUGADOR_H_INCLUDED

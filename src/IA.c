@@ -1,129 +1,140 @@
 #include "../include/IA.h"
 
 
-int obtener_pos_carta_IAdificil(tJugador * ia,tCarta * ultima_carta,int puntaje_jugador)
+int obtener_pos_carta_IA_dificil(tJugador* IA, tCarta* ultima_carta, int puntaje_jugador)
 {
-    int pos_espejo,pos1,pos2;
+    int pos_espejo, pos_repetir, pos_restar, pos_sumar;
+    pos_espejo = pos_repetir = pos_restar = pos_sumar = -1;
+
     printf("IA Seleccionando carta.....");
     Sleep(1000);
-            if (ultima_carta != NULL && (pos_espejo = buscar_carta_en_mano(ia, ESPEJO)) != -1 && (ultima_carta->tipoPoder == RESTAR_2 || ultima_carta->tipoPoder == RESTAR_1)) /// busca una carta espejo en su mano
-            {/// mira si la ultima carta que tiro el jugador es de restar puntos
-                    /// si tiene una carta espejo, la tira
-                    return pos_espejo;
-            }
-            else
-            {
-                pos1 = buscar_carta_en_mano(ia, REPETIR_TURNO);    /// busca carta de repetir turno en su mano
-                if (puntaje_jugador >= 8)   /// si el jugador esta por ganar:
-                {
-                    if ((pos2 = buscar_carta_en_mano(ia,RESTAR_2)) != -1)  /// busca carta de restar 2 puntos
-                    {
-                        if (pos1 == -1)
-                            pos1 = pos2;    /// si encontro carta restar 2, y no tiene repetir, guarda la carta restar 2
-                    }
-                    else
-                        if ((pos2 = buscar_carta_en_mano(ia,RESTAR_1)) != -1)  /// si no tiene, busca carta de restar 1 punto
-                        {
-                            if (pos1 == -1)
-                                pos1 = pos2;    /// si encontro carta restar 1, y no tiene repetir, guarda la carta restar 2
-                        }
 
-                    if (pos1 != -1)
-                    {
-                        /// tira carta de repetir, o de restar puntos, si es que tiene
-                        return pos1;
-                    }
-                }
+    // Regla 2: Usa carta espejo en caso de recibir una carta negativa del oponente
+    if (ultima_carta != NULL && (pos_espejo = buscar_carta_en_mano(IA, ESPEJO)) != -1 &&
+       (ultima_carta->tipoPoder == RESTAR_2 || ultima_carta->tipoPoder == RESTAR_1))
+        return pos_espejo;
 
-                if (pos1 == -1 || puntaje_jugador < 8)  /// si el jugador no esta por ganar, y tengo carta de repetir, o no tengo carta de repetir
-                {
-                    if ((pos2 = buscar_carta_en_mano(ia, SUMAR_2)) != 1)   /// busca en su mano cartas de sumar 2 puntos
-                    {
-                        if (pos1 == -1)
-                            pos1 = pos2;
-                    }
-                    else
-                        if ((pos2 = buscar_carta_en_mano(ia, SUMAR_1)) != -1)   /// sino, busca en su mano cartas de sumar 1 punto
-                        {
-                            if (pos1 == -1)
-                                pos1 = pos2;
-                        }
+    // Regla 1: Si el jugador está cerca de ganar, prioriza cartas de “repetir turno” o “sacar puntos”.
+    pos_repetir = buscar_carta_en_mano(IA, REPETIR_TURNO);
 
-                    if (pos1 != -1 && pos2 != -1)
-                    {
-                        /// si tengo carta de repetir y de sumar, tiro la de repetir. si tengo de sumar, tiro la de sumar
-                        return pos1;
-                    }
-                }
-                else
-                    if (pos1 != -1)
-                    {
-                        if (puntaje_jugador >= 2)
-                        {
-                            if ((pos2 = buscar_carta_en_mano(ia, RESTAR_2)) != -1)  /// si el jugador no está por ganar, y no tengo cartas de sumar, busco de restar 2 (si el jugador tiene 2 puntos o mas)
-                            {
-                                if (pos1 == -1)
-                                    pos1 = pos2;
-                            }
-                            else
-                                if (puntaje_jugador >= 1 && (pos2 = buscar_carta_en_mano(ia, RESTAR_1)) != -1)  /// si el jugador tiene 1 punto o mas, busco carta de restar punto
-                                {
-                                    if (pos1 == -1)
-                                        pos1 = pos2;
-                                }
-                        }
-                        if (pos1 != -1 && pos2 != -1)
-                        {
-                            /// si tiene carta repetir, y alguna de resta, tira la de repetir. si tiene solo de resta, tira la de resta
-                            return pos1;
-                        }
-                    }
+    if(puntaje_jugador >= 8)
+    {
+        // Si no tengo para repetir, voy a buscar restarle puntos
+        if(pos_repetir == -1)
+        {
+            // BUSCO RESTAR_2
+            pos_restar = buscar_carta_en_mano(IA, RESTAR_2);
+            if(pos_restar != -1)
+                return pos_restar;
 
-                if (pos1 == -1 && pos_espejo != -1)
-                {
-                    /// si no tiene cartas de sumar, de restar ni de repetir, se fija si tiene de espejo (la consigna habla de SOLO usar la carta de repetir cuando hay mas de una buena en el mazo)
-                    return pos_espejo;
-                }
-                else
-                    if (pos1 == -1)
-                    {
-                        /// se supone que en este caso, la mano de la ia tiene todas cartas de repetir, entonces tira la primera
-                        return 0;
-                    }
-            }
-            pos1=rand()%3;
+            // BUSCO RESTAR_1
+            pos_restar = buscar_carta_en_mano(IA, RESTAR_1);
+            if(pos_restar != -1)
+                return pos_restar;
+        }
+        // Si no hay cartas de restar, usar repetir turno para retrasar la posible victoria del jugador
+        else
+            return pos_repetir;
+    }
+
+    // Regla 3: Prefiere repetir turno solo si tiene más de una carta buena en mano
+    /* Cuando llego a este punto, tengo dos situaciones posibles:
+            1: El jugador esta cerca de ganar, pero no tiene RESTAR_2, RESTAR_1 ni REPETIR_TURNO,
+            entonces solo podria optar por una carta de espejo o sumar
+            2: El jugador no esta cerca de ganar, asi que no se ingreso en el anterior IF */
+
+    // Si el contrincante no esta cerca de ganar, entonces la IA prioriza sumar puntos, de lo contrario, resta
+    if(puntaje_jugador < 8)
+    {
+        /* Posibilidades:
+           Si tengo SUMAR_2 y REPETIR -> REPETIR
+           Si tengo SUMAR_2 y no REPETIR -> SUMAR_2
+           Si tengo SUMAR_1 y REPETIR -> REPETIR
+           Si tengo SUMAR_1 y no REPETIR -> SUMAR_1 */
+        pos_sumar = buscar_carta_en_mano(IA, SUMAR_2);
+
+        if(pos_sumar != -1)
+            return (pos_repetir != -1) ? (pos_repetir) : (pos_sumar);
+        else
+        {
+            pos_sumar = buscar_carta_en_mano(IA, SUMAR_1);
+            if(pos_sumar != -1)
+                return (pos_repetir != -1) ? (pos_repetir) : (pos_sumar);
+        }
+
+        // Si llegue hasta este punto, no tengo cartas de sumar, asi que me queda restar
+        /* Si tengo RESTAR_2 Y REPETIR -> REPETIR
+           Si tengo RESTAR_2 Y no REPETIR -> RESTAR_2
+           Si tengo RESTAR_1 Y REPETIR -> REPETIR
+           Si tengo RESTAR_1 Y no REPETIR -> RESTAR_1 */
+        if(puntaje_jugador >= 2)
+        {
+            pos_restar = buscar_carta_en_mano(IA, RESTAR_2);
+            if(pos_restar != -1)
+                return (pos_repetir != -1) ? (pos_repetir) : (pos_restar);
+        }
+        else if(puntaje_jugador >= 1)
+        {
+            pos_restar = buscar_carta_en_mano(IA, RESTAR_1);
+            if(pos_restar != -1)
+                return (pos_repetir != -1) ? (pos_repetir) : (pos_restar);
+        }
+
+    }
+    /* Es el caso de que el contrincante este cerca de ganar, si yo pase por la REGLA 1,
+       y llegue hasta evaluar esta condicion, solo podria darse si:
+            - POS_REPETIR == -1
+            - POS_RESTAR_1 == -1
+            - POS_RESTAR_2 == -1
+       asi que deberia evaluar si tiro un espejo o finalmente la de repetir*/
+    else
+    {
+        // La primera condicion me asegura que en el primer IF de la funcion, si se calculo el espejo
+        if(ultima_carta != NULL && ((ultima_carta->tipoPoder == RESTAR_2) ||
+           (ultima_carta->tipoPoder == RESTAR_1)))
+            return pos_espejo;
+
+        else if(pos_repetir != -1)
+            return pos_repetir;
+    }
+
+    return rand() % 3;
+}
+
+int obtener_pos_carta_IA_normal(tJugador* IA, tCarta* ultima_carta, int puntaje_jugador)
+{
+    int pos1, cant = 0;
+    printf("IA Seleccionando carta.....");
+    Sleep(1000);
+
+    if (IA->puntajeAcumulado >= 8)  /// si la IA esta por ganar: busca cartas de sumar puntos
+    {
+        if ((pos1 = buscar_carta_en_mano(IA, SUMAR_2)) != -1)
             return pos1;
+        else if((pos1 = buscar_carta_en_mano(IA, SUMAR_1)) != -1)
+            return pos1;
+    }
+
+    while (pos1 == -1 && cant != 9)   /// si la IA no tiro carta, busca una aleatorIAmente, y luego la compara con las cartas de restar, y se fija si el puntaje del jugador no es 0. si es 0, y la carta que selecciono es restar, no la tira y busca otra
+    {
+        pos1 = rand() % 3;
+
+        if (IA->mano.mano[pos1].tipoPoder == RESTAR_1 || IA->mano.mano[pos1].tipoPoder == RESTAR_2)
+        {
+            if (puntaje_jugador == 0)
+                pos1 = -1;
+            else
+                return pos1;
+        }
+        cant++;
+    }
+
+    return pos1 = rand() % 3;
 }
-int obtener_pos_carta_IAnormal(tJugador * ia,tCarta * ultima_carta,int puntaje_jugador)
-{
-    int pos1,cantBucle=0;
-    printf("IA Seleccionando carta.....");
-    Sleep(1000);
-    if (ia->puntajeAcumulado >= 8)  /// si la ia esta por ganar: busca cartas de sumar puntos
-            {
-                if ((pos1 = buscar_carta_en_mano(ia, SUMAR_2)) != -1)
-                    return pos1;
-                else
-                    if ((pos1 = buscar_carta_en_mano(ia, SUMAR_1)) != -1)
-                        return pos1;
-            }
-            while (pos1 == -1 && cantBucle!=9)   /// si la ia no tiro carta, busca una aleatoriamente, y luego la compara con las cartas de restar, y se fija si el puntaje del jugador no es 0. si es 0, y la carta que selecciono es restar, no la tira y busca otra
-            {
-                pos1 = rand() %3;
-                if (ia->mano.mano[pos1].tipoPoder == RESTAR_1 || ia->mano.mano[pos1].tipoPoder == RESTAR_2)
-                {
-                    if (puntaje_jugador == 0)
-                        pos1 = -1;
-                    else
-                        return pos1;
-                }
-                cantBucle++;
-            }
-   return pos1 = rand() %3;
-}
-int obtener_pos_carta_IAfacil(tJugador * ia,tCarta * ultima_carta,int puntaje_jugador)
+
+int obtener_pos_carta_IA_facil(tJugador* IA, tCarta* ultima_carta, int puntaje_jugador)
 {
     printf("IA Seleccionando carta.....");
     Sleep(1000);
-    return rand()%3;
+    return rand() % 3;
 }

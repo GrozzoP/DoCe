@@ -11,6 +11,7 @@ void _cargarJugador(tJugador * py)
     py->puntajeAcumulado=0;//pone por defecto 0 los puntos al jugador
     system("CLS");
 }
+
 void _cargarIA(tJugador * py)
 {
     int d=0;
@@ -33,7 +34,8 @@ void _cargarIA(tJugador * py)
             break;
     }
 }
-int cargarJugador(tJugador * jugA,tJugador * jugB)
+
+int cargar_jugador(tJugador* jugA, tJugador* jugB)
 {
     srand(time(NULL));
     int res=rand()%2;
@@ -49,7 +51,7 @@ int cargarJugador(tJugador * jugA,tJugador * jugB)
         _cargarIA(jugB);
         return res;
     }
-    return -1;
+    return TODO_OK;
 }
 int obtener_pos_carta_jugador()
 {

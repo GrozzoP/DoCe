@@ -23,8 +23,12 @@ void vistas_bienvenida()
     printf("|                                                                                                       |\n");
     printf("+-------------------------------------------------------------------------------------------------------+\n");
 }
-void vistas_juego(tJugador * a,tJugador * b,tCarta * ca,tCarta *cb ,unsigned Cant)
+void vistas_juego(tJugador* a, tJugador* b, tCarta* ca, tCarta* cb ,unsigned Cant)
 {
+    printf("\nDEBUG CARTAS IA");
+    printf("\nPRIMER CARTA: %s", obtener_stringPoder(&a->mano.mano[0]));
+    printf("\nSEGUNDA CARTA: %s", obtener_stringPoder(&a->mano.mano[1]));
+    printf("\nTERCER CARTA: %s\n", obtener_stringPoder(&a->mano.mano[2]));
 
     printf("+-------------------------------------------------------------------------------------------------------+\n");
     printf("| +--------++--------++--------+    +----------------------------------+                                |\n");

@@ -93,3 +93,122 @@
 
 1747424157 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\utils\menu.c
 
+1748689415 source:c:\users\usuario\downloads\doce-logicajuego\doce-logicajuego\main.c
+	"include/partida.h"
+	<stdlib.h>
+	<string.h>
+	"include/ranking.h"
+
+1748729463 c:\users\usuario\downloads\doce-logicajuego\doce-logicajuego\include\partida.h
+	"ctype.h"
+	"time.h"
+	"conio.h"
+	"utils/colaDinamica.h"
+	"utils/vistas.h"
+	"mazo.h"
+	"jugada.h"
+	"jugador.h"
+	"../config.h"
+
+1748689415 c:\users\usuario\downloads\doce-logicajuego\doce-logicajuego\include\utils\coladinamica.h
+	<string.h>
+	<stdlib.h>
+
+1748689415 c:\users\usuario\downloads\doce-logicajuego\doce-logicajuego\include\utils\vistas.h
+	"../tipoJugador.h"
+
+1748689415 c:\users\usuario\downloads\doce-logicajuego\doce-logicajuego\include\tipojugador.h
+	<stdio.h>
+	<windows.h>
+	<stdlib.h>
+	<time.h>
+	"mano.h"
+
+1748689415 c:\users\usuario\downloads\doce-logicajuego\doce-logicajuego\include\mano.h
+	"carta.h"
+
+1748731806 c:\users\usuario\downloads\doce-logicajuego\doce-logicajuego\include\carta.h
+	<string.h>
+	"tipoPoder.h"
+	"../config.h"
+	"utils/comun.h"
+
+1748689415 c:\users\usuario\downloads\doce-logicajuego\doce-logicajuego\include\tipopoder.h
+
+1748689415 c:\users\usuario\downloads\doce-logicajuego\doce-logicajuego\config.h
+
+1748689415 c:\users\usuario\downloads\doce-logicajuego\doce-logicajuego\include\mazo.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"tipoJugador.h"
+	"utils/listaSimple.h"
+	"../config.h"
+
+1748689415 c:\users\usuario\downloads\doce-logicajuego\doce-logicajuego\include\utils\listasimple.h
+	<stdlib.h>
+	<string.h>
+
+1748689415 c:\users\usuario\downloads\doce-logicajuego\doce-logicajuego\include\jugada.h
+	"carta.h"
+
+1748729241 c:\users\usuario\downloads\doce-logicajuego\doce-logicajuego\include\jugador.h
+	<stdio.h>
+	<string.h>
+	"tipoJugador.h"
+	"IA.h"
+
+1748709132 c:\users\usuario\downloads\doce-logicajuego\doce-logicajuego\include\ia.h
+	"tipoJugador.h"
+
+1748731943 c:\users\usuario\downloads\doce-logicajuego\doce-logicajuego\include\ranking.h
+	"../lib/conectarAPI.h"
+	"utils/listaSimple.h"
+	"utils/comun.h"
+
+1748689415 c:\users\usuario\downloads\doce-logicajuego\doce-logicajuego\lib\conectarapi.h
+	<curl/curl.h>
+	"../include/jugador.h"
+
+1748689415 source:c:\users\usuario\downloads\doce-logicajuego\doce-logicajuego\src\carta.c
+	"../include/carta.h"
+
+1748731236 source:c:\users\usuario\downloads\doce-logicajuego\doce-logicajuego\src\ia.c
+	"../include/IA.h"
+
+1748689415 source:c:\users\usuario\downloads\doce-logicajuego\doce-logicajuego\src\jugada.c
+
+1748729200 source:c:\users\usuario\downloads\doce-logicajuego\doce-logicajuego\src\jugador.c
+	"../include/jugador.h"
+
+1748689415 source:c:\users\usuario\downloads\doce-logicajuego\doce-logicajuego\src\mano.c
+	"../include/mano.h"
+
+1748689415 source:c:\users\usuario\downloads\doce-logicajuego\doce-logicajuego\src\mazo.c
+	"../include/mazo.h"
+
+1748731839 source:c:\users\usuario\downloads\doce-logicajuego\doce-logicajuego\src\partida.c
+	"../include/partida.h"
+
+1748731991 source:c:\users\usuario\downloads\doce-logicajuego\doce-logicajuego\src\ranking.c
+	"../include/ranking.h"
+
+1748708271 source:c:\users\usuario\downloads\doce-logicajuego\doce-logicajuego\src\tipojugador.c
+	"../include/tipoJugador.h"
+
+1748689415 source:c:\users\usuario\downloads\doce-logicajuego\doce-logicajuego\src\utils\coladinamica.c
+	"../../include/utils/colaDinamica.h"
+
+1748689415 source:c:\users\usuario\downloads\doce-logicajuego\doce-logicajuego\src\utils\listasimple.c
+	"../../include/utils/listaSimple.h"
+
+1748689415 source:c:\users\usuario\downloads\doce-logicajuego\doce-logicajuego\src\utils\menu.c
+
+1748703497 source:c:\users\usuario\downloads\doce-logicajuego\doce-logicajuego\lib\conectarapi.c
+	"conectarAPI.h"
+
+1748729749 source:c:\users\usuario\downloads\doce-logicajuego\doce-logicajuego\src\utils\vistas.c
+	"../../include/mazo.h"
+
+1748731986 c:\users\usuario\downloads\doce-logicajuego\doce-logicajuego\include\utils\comun.h
+

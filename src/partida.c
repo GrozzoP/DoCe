@@ -1,4 +1,5 @@
 #include "../include/partida.h"
+
 void asignar_puntos(tJugador * jugPrincipal,tJugador * jugContrincante,tCarta * principal, tCarta * contrincante)
 {
     if(principal->tipoPoder == SUMAR_2 || principal->tipoPoder == SUMAR_1)
@@ -34,6 +35,7 @@ void asignar_puntos(tJugador * jugPrincipal,tJugador * jugContrincante,tCarta * 
         }
     }
 }
+
 void imprimir_turnos(tCola * cola_regTurnos,FILE*pf)
 {
     tJugada jugada;
@@ -47,6 +49,7 @@ void imprimir_turnos(tCola * cola_regTurnos,FILE*pf)
         fprintf(pf,"%8d|%-25s|%-25s|%-25d|%-25d\n",jugada.nroJugada,jugada.cartaJugada_primer_jugador,jugada.cartaJugada_segundo_jugador,jugada.puntajeAcumulado_primer_jugador,jugada.puntajeAcumulado_segundo_jugador);
     }
 }
+
 void almacenar_turno(tCola * cola_regTurnos,tJugador * primer_jugador,tJugador * segundo_jugador,tCarta carta_primer_jugador,tCarta carta_segundo_jugador,int turno)
 {
     tJugada reg_jugada;
@@ -64,58 +67,60 @@ void almacenar_turno(tCola * cola_regTurnos,tJugador * primer_jugador,tJugador *
 
     enColar(cola_regTurnos,&reg_jugada,sizeof(tJugada));
 }
-void procesar_partida(tLista * masoA,tLista * masoB,tCola * cola_regTurnos,tJugador *primer_jugador,tJugador * segundo_jugador,int * cantidadCartas,int posIA,ACCION POS_IA)
+
+void procesar_partida(tLista* mazoA, tLista* mazoB,tCola* cola_regTurnos, tJugador* primer_jugador, tJugador* segundo_jugador,
+                      int* cantidadCartas, int posIA, ACCION POS_IA)
 {
-    tCarta vacia,carta_primer_jugador,carta_segundo_jugador;
+    tCarta vacia, carta_primer_jugador, carta_segundo_jugador;
     int pos;
-    static int turno=1;
+    int turno = 1;
 
     vistas_juego(primer_jugador,segundo_jugador,&vacia,&vacia,*cantidadCartas);
     Sleep(1000);
-    do{
+    do {
         (*cantidadCartas)++;
         if(posIA == 0)
-            pos=POS_IA(primer_jugador,NULL,segundo_jugador->puntajeAcumulado);
+            pos = POS_IA(primer_jugador, NULL, segundo_jugador->puntajeAcumulado);
         else
-            pos=obtener_pos_carta_jugador();
+            pos = obtener_pos_carta_jugador();
         carta_primer_jugador=primer_jugador->mano.mano[pos];
 
         system("CLS");
-        vistas_juego(primer_jugador,segundo_jugador,&carta_primer_jugador,&vacia,*cantidadCartas);
+        vistas_juego(primer_jugador, segundo_jugador, &carta_primer_jugador, &vacia, *cantidadCartas);
         Sleep(1000);
 
-        descartar_carta_mano(masoB,primer_jugador,pos,*cantidadCartas);
-        pedir_carta_maso(masoA,primer_jugador,pos);
+        descartar_carta_mano(mazoB, primer_jugador, pos, *cantidadCartas);
+        pedir_carta_maso(mazoA,primer_jugador,pos);
         if(carta_primer_jugador.tipoPoder == REPETIR_TURNO)
         {
             almacenar_turno(cola_regTurnos,primer_jugador,segundo_jugador,carta_primer_jugador,vacia,turno);
             system("CLS");
             vistas_juego(primer_jugador,segundo_jugador,&carta_primer_jugador,&vacia,*cantidadCartas);
         }
-    }while(carta_primer_jugador.tipoPoder == REPETIR_TURNO && lista_vacia(masoA) != LISTA_VACIA );
-    do{
+    } while(carta_primer_jugador.tipoPoder == REPETIR_TURNO && lista_vacia(mazoA) != LISTA_VACIA );
 
+    do {
         (*cantidadCartas)++;
         if(posIA == 1)
-            pos=POS_IA(segundo_jugador,&carta_primer_jugador,primer_jugador->puntajeAcumulado);
+            pos = POS_IA(segundo_jugador,&carta_primer_jugador,primer_jugador->puntajeAcumulado);
         else
-            pos=obtener_pos_carta_jugador();
+            pos = obtener_pos_carta_jugador();
 
-        carta_segundo_jugador=segundo_jugador->mano.mano[pos];
+        carta_segundo_jugador = segundo_jugador->mano.mano[pos];
 
         system("CLS");
         vistas_juego(primer_jugador,segundo_jugador,&carta_primer_jugador,&carta_segundo_jugador,*cantidadCartas);
         Sleep(1000);
 
-        descartar_carta_mano(masoB,segundo_jugador,pos,*cantidadCartas);
-        pedir_carta_maso(masoA,segundo_jugador,pos);
+        descartar_carta_mano(mazoB,segundo_jugador,pos,*cantidadCartas);
+        pedir_carta_maso(mazoA,segundo_jugador,pos);
         if(carta_segundo_jugador.tipoPoder == REPETIR_TURNO)
         {
-            almacenar_turno(cola_regTurnos,primer_jugador,segundo_jugador,carta_primer_jugador,carta_segundo_jugador,turno);
+            almacenar_turno(cola_regTurnos, primer_jugador, segundo_jugador, carta_primer_jugador, carta_segundo_jugador,turno);
             system("CLS");
             vistas_juego(primer_jugador,segundo_jugador,&carta_primer_jugador,&carta_segundo_jugador,*cantidadCartas);
         }
-    }while( carta_segundo_jugador.tipoPoder == REPETIR_TURNO  && lista_vacia(masoA) != LISTA_VACIA);
+    } while( carta_segundo_jugador.tipoPoder == REPETIR_TURNO  && lista_vacia(mazoA) != LISTA_VACIA);
 
     asignar_puntos(primer_jugador,segundo_jugador,&carta_primer_jugador,&carta_segundo_jugador);
 
@@ -124,95 +129,103 @@ void procesar_partida(tLista * masoA,tLista * masoB,tCola * cola_regTurnos,tJuga
     turno++;
     system("CLS");
 }
-void partida(tLista * masoA,tLista * masoB,tCola * cola_regTurnos,tJugador * primer_jugador,tJugador * segundo_jugador,int * cantidadCartas,int posIA)
+
+void partida(tLista * mazoA,tLista * mazoB,tCola * cola_regTurnos,tJugador * primer_jugador,tJugador * segundo_jugador,int * cantidadCartas,int posIA)
 {
     if(strcmpi(primer_jugador->nombre,STRING_PERFILES[IA_FACIL])==0 || strcmpi(segundo_jugador->nombre,STRING_PERFILES[IA_FACIL])==0)
-        procesar_partida(masoA,masoB,cola_regTurnos,primer_jugador,segundo_jugador,cantidadCartas,posIA,obtener_pos_carta_IAfacil);
+        procesar_partida(mazoA,mazoB,cola_regTurnos,primer_jugador,segundo_jugador,cantidadCartas,posIA,obtener_pos_carta_IA_facil);
 
     if(strcmpi(primer_jugador->nombre,STRING_PERFILES[IA_NORMAL])==0 || strcmpi(segundo_jugador->nombre,STRING_PERFILES[IA_NORMAL])==0)
-        procesar_partida(masoA,masoB,cola_regTurnos,primer_jugador,segundo_jugador,cantidadCartas,posIA,obtener_pos_carta_IAnormal);
+        procesar_partida(mazoA,mazoB,cola_regTurnos,primer_jugador,segundo_jugador,cantidadCartas,posIA,obtener_pos_carta_IA_normal);
 
     if(strcmpi(primer_jugador->nombre,STRING_PERFILES[IA_DIFICIL])==0 || strcmpi(segundo_jugador->nombre,STRING_PERFILES[IA_DIFICIL])==0)
-        procesar_partida(masoA,masoB,cola_regTurnos,primer_jugador,segundo_jugador,cantidadCartas,posIA,obtener_pos_carta_IAdificil);
+        procesar_partida(mazoA, mazoB, cola_regTurnos, primer_jugador, segundo_jugador, cantidadCartas, posIA, obtener_pos_carta_IA_dificil);
 }
 
 void crear_archivo_informes(FILE ** pInforme)
 {
-    char hora[32],nombre_reg[37];
-    time_t fecha=time(NULL);
-    struct tm *hora_local=localtime(&fecha);
+    char hora[32], nombre_reg[37];
+    time_t fecha = time(NULL);
+    struct tm* hora_local = localtime(&fecha);
     strftime(hora,sizeof(hora),"informe-juego_%Y-%m-%d-%H-%M",hora_local);
     snprintf(nombre_reg,sizeof(nombre_reg),"%s.txt",hora);
     *pInforme=fopen(nombre_reg,"wt");
 }
+
 int juegoDOCE()
 {
-    FILE*pfRegistros;
-    tLista masoA,masoB;
+    FILE* pfRegistros;
+    tLista mazoA,mazoB;
     tCola cola_regTurnos;
-    int vecesVaciado=0,
-        cantidadCartas=0,
-        posIA;
+    int vecesVaciado=0, cantidadCartas=0, posIA, res;
     tJugador jug[2];
 
     crear_archivo_informes(&pfRegistros);
-    if(!pfRegistros)
-        return -5;
 
-    //creo los masos
-    crear_lista(&masoA);
-    crear_lista(&masoB);
+    if(!pfRegistros)
+        return ERROR_ARCHIVO;
+
+    // Creo los mazos
+    crear_lista(&mazoA);
+    crear_lista(&mazoB);
 
     crear_cola(&cola_regTurnos);
 
     //cargo el principal
-    int res;
-    if((res=cargar_carta_lista_random(&masoA,"cartas.txt"))==ERROR_SOBRECARGA_CARTAS)
+
+    if((res=cargar_carta_lista_random(&mazoA,"cartas.txt"))==ERROR_SOBRECARGA_CARTAS)
         return ERROR_SOBRECARGA_CARTAS;
     if(res == ERROR_OBTENER_TIPOPODER_SEGUN_CARTA)
         return ERROR_OBTENER_TIPOPODER_SEGUN_CARTA;
+
     system("CLS");
     //creo y cargo los jugadores, no interesa el orden con que se creen
     //lo importante que uno se llame ia(esto para la funcion obtener_pos_carta_jugador())
-//    habilitarANSI();
+    //    habilitarANSI();
     puts("");
     vistas_bienvenida();
-    posIA=cargarJugador(&jug[0],&jug[1]);
+    posIA = cargar_jugador(&jug[0],&jug[1]);
     //cargo la mano de cada jugador
-    cargar_mano(&jug[0],&masoA);
-    cargar_mano(&jug[1],&masoA);;
-    while( (jug[1].puntajeAcumulado<12) && (jug[0].puntajeAcumulado<12))//mientras que ninguno supere los 12 puntos
+    cargar_mano(&jug[0],&mazoA);
+    cargar_mano(&jug[1],&mazoA);
+
+    while((jug[1].puntajeAcumulado < 12) && (jug[0].puntajeAcumulado < 12))//mientras que ninguno supere los 12 puntos
     {
 
-        partida(&masoA,&masoB,&cola_regTurnos,&jug[0],&jug[1],&cantidadCartas,posIA);
+        partida(&mazoA, &mazoB, &cola_regTurnos, &jug[0], &jug[1], &cantidadCartas,posIA);
 
-        if(lista_vacia(&masoA) == LISTA_VACIA)
+        if(lista_vacia(&mazoA) == LISTA_VACIA)
         {
             vecesVaciado++;
-            masoA=masoB;//paso la cabeza del maso de descarte al principal
-            masoB=NULL;//se pone null en el de descarte, porque sino ambos apuntarian a lo mismo
+            mazoA = mazoB; //paso la cabeza del maso de descarte al principal
+            mazoB = NULL; //se pone null en el de descarte, porque sino ambos apuntarian a lo mismo
             cantidadCartas=0;
         }
     }
+
     imprimir_turnos(&cola_regTurnos,pfRegistros);
     system("CLS");
-    printf("\nVeces que se remezclo el maso : %d\n",vecesVaciado);
+    printf("\nVeces que se remezclo el mazo : %d\n", vecesVaciado);
     printf("\n---------[Ganador]---------------\n");
-    if(jug[0].puntajeAcumulado>11)
-        printf("\nJugador ganador: [%s]\nPuntos obtenidos:%d\n",jug[0].nombre,jug[0].puntajeAcumulado);
+
+    if(jug[0].puntajeAcumulado > 11)
+        printf("\nJugador ganador: [%s]\nPuntos obtenidos:%d\n", jug[0].nombre,jug[0].puntajeAcumulado);
     else
-        printf("\nJugador ganador: [%s]\nPuntos obtenidos:%d\n",jug[1].nombre,jug[1].puntajeAcumulado);
+        printf("\nJugador ganador: [%s]\nPuntos obtenidos:%d\n", jug[1].nombre,jug[1].puntajeAcumulado);
 
     printf("\n---------------------------------\n");
     //retiro las 6 cartas que le quedan a los jugadores
-    descartar_mano(&jug[0],&masoB);
-    descartar_mano(&jug[1],&masoB);
+    descartar_mano(&jug[0],&mazoB);
+    descartar_mano(&jug[1],&mazoB);
+
     //vacio ambos masos
     vaciar_cola(&cola_regTurnos);
-    vaciar_lista(&masoA);
-    vaciar_lista(&masoB);
+    vaciar_lista(&mazoA);
+    vaciar_lista(&mazoB);
     fclose(pfRegistros);
-    if(lista_vacia(&masoA)!= LISTA_VACIA || lista_vacia(&masoB)!= LISTA_VACIA)
-        printf(".......hubo perdida de datos........");
-    return 1;
+
+    if(lista_vacia(&mazoA)!= LISTA_VACIA || lista_vacia(&mazoB) != LISTA_VACIA)
+        printf("Hubo perdida de datos........");
+
+    return TODO_OK;
 }
