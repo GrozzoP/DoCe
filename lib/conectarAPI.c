@@ -123,7 +123,7 @@ CURLcode enviar_jugador_JSON(const tJugador* jugador)
     "{\"CodigoGrupo\":\"%s\", \"jugador\":{\"nombre\":\"%s\",\"vencedor\":%d}}",
     CODIGO_GRUPO,
     jugador->nombre,
-    ((jugador->puntajeAcumulado) >= 12) ? 1 : 0
+    1
     );
 
     return peticion_POST(&respuesta, API_URL_BASE, JSON);

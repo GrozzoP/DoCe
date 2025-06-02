@@ -29,9 +29,7 @@ int parsear_jugador(tRespuesta* res, tJugadorAPI* jugador)
     if(!nombre)
         return SIN_MEM;
 
-    // Este puntero siempre apuntara a una direccion mayor, sera mi referencia HASTA donde debo leer
     pJsonPosterior = res->info;
-    // Este puntero siempre apuntara a una direccion menor, sera mi referencia DESDE donde debo leer
     pJsonAnterior = res->info;
 
     pJsonPosterior = strrchr(res->info, '}');
@@ -39,30 +37,25 @@ int parsear_jugador(tRespuesta* res, tJugadorAPI* jugador)
     if(!pJsonPosterior)
         return CHAR_NO_ENCONTRADO;
 
-    // Como se que no piso un dato, pongo el sentinela para copiar mas adelante
     *pJsonPosterior = '\0';
 
-    // Si encuentro ':', estoy en un caracter anterior al comienzo del dato
     pJsonAnterior = strrchr(res->info, ':');
 
-    // Copio la cantidad de partidas ganadas
     sscanf(pJsonAnterior + 1, "%d", &jugador->cantidadPartidasGanadas);
 
-    // Busco el otro dato relativo al jugador, que es el nombre, primero busco el separador ','
     pJsonPosterior = strrchr(res->info, ',');
-    // Decremento en uno para situarme en la ultima " que cierra el nombre
+
     pJsonPosterior--;
     *pJsonPosterior = '\0';
 
-    // Dejo el puntero menor en la primer comilla que abre el nombre
+
     pJsonAnterior = strrchr(res->info, '"');
-    // Cuando aumento, me encuentro en la primer letra del nombre
+
     pJsonAnterior++;
 
-    // Copio el nombre en la estructura del jugador
     strcpy(jugador->nombreJugador, pJsonAnterior);
 
-    // Me situo en el '{' para sacar de la cadena el jugador que ya acabo de leer
+
     pJsonPosterior = strrchr(res->info, '{');
     *pJsonPosterior = '\0';
 

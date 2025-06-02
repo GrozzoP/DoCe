@@ -2,6 +2,8 @@
 #define COMUN_H_INCLUDED
 
 #define TODO_OK 0
+#define PERDIDA_DE_DATOS -7
+#define JUGADOR_NO_CARGADO -6
 #define CHAR_NO_ENCONTRADO -5
 #define SIN_MEM -5
 #define ERROR_ARCHIVO -4

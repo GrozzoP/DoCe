@@ -107,7 +107,7 @@ int obtener_pos_carta_IA_normal(tJugador* IA, tCarta* ultima_carta, int puntaje_
     printf("IA Seleccionando carta.....");
     Sleep(1000);
 
-    if (IA->puntajeAcumulado >= 8)  /// si la IA esta por ganar: busca cartas de sumar puntos
+    if (IA->puntajeAcumulado >= 8)
     {
         if ((pos1 = buscar_carta_en_mano(IA, SUMAR_2)) != -1)
             return pos1;
@@ -115,7 +115,7 @@ int obtener_pos_carta_IA_normal(tJugador* IA, tCarta* ultima_carta, int puntaje_
             return pos1;
     }
 
-    while (pos1 == -1 && cant != 9)   /// si la IA no tiro carta, busca una aleatorIAmente, y luego la compara con las cartas de restar, y se fija si el puntaje del jugador no es 0. si es 0, y la carta que selecciono es restar, no la tira y busca otra
+    while (pos1 == -1 && cant != 9)
     {
         pos1 = rand() % 3;
 

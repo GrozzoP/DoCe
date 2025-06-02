@@ -68,8 +68,7 @@ char * obtener_stringPoder(tCarta * carta)
 {
     if(carta != NULL)
     {
-        return (char*)STRING_PODER[carta->tipoPoder];
-       /* switch(carta->tipoPoder)
+        switch(carta->tipoPoder)
         {
             case RESTAR_2:
                 return "RESTAR_2\0";
@@ -89,7 +88,7 @@ char * obtener_stringPoder(tCarta * carta)
             case REPETIR_TURNO:
                 return "REPETIR_TURNO\0";
                 break;
-        }*/
+        }
     }
      return " ";
 }

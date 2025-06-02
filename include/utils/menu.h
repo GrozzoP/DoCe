@@ -5,7 +5,10 @@
 #include "../ranking.h"
 #include "../partida.h"
 #include "vistas.h"
+#include "comun.h"
 
- int menu();
+int imprimir_errores(int val_error);
+int menu();
+int menu_juego();
 
 #endif // MENU_H_INCLUDED

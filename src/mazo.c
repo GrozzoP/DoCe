@@ -7,7 +7,7 @@ int cargar_carta_lista_random(tLista* pL, const char* nombArch)
     unsigned cantCartas=0;
     FILE* pf = fopen(nombArch,"rt");
 
-    if(pf == NULL)
+    if(!pf)
         return ERROR_ARCHIVO;
 
     while(fscanf(pf,"%13s",carta)==1)
@@ -17,15 +17,17 @@ int cargar_carta_lista_random(tLista* pL, const char* nombArch)
         if(aux.tipoPoder == ERROR_OBTENER_TIPOPODER_SEGUN_CARTA)
         {
             fclose(pf);
+            printf("\n[%s]:%d",TO_STRING(ERROR_OBTENER_TIPOPODER_SEGUN_CARTA),ERROR_OBTENER_TIPOPODER_SEGUN_CARTA);
             return ERROR_OBTENER_TIPOPODER_SEGUN_CARTA;
         }
         if(aux.tipoPoder == ERROR_SOBRECARGA_CARTAS)
         {
             fclose(pf);
+            printf("\n[%s]:%d",TO_STRING(ERROR_SOBRECARGA_CARTAS),ERROR_SOBRECARGA_CARTAS);
             return ERROR_SOBRECARGA_CARTAS;
+            printf("\n[ ERROR_SOBRECARGA_CARTAS ]:%d\n",ERROR_SOBRECARGA_CARTAS);
         }
-        if(poner_en_lista_pos(pL,&aux,sizeof(tCarta),rand()%cantCartas) == LISTA_LLENA)
-            return LISTA_LLENA;
+        poner_en_lista_pos(pL,&aux,sizeof(tCarta),rand()%cantCartas);
     }
 
     fclose(pf);

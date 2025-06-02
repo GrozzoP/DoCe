@@ -2,8 +2,8 @@
 void intercambiar_mazos(tLista * mazoA,tLista * mazoB,int * CantidadCartas)
 {
     vistas_remezclando();
-    *mazoA = *mazoB; //paso la cabeza del maso de descarte al principal
-    *mazoB = NULL; //se pone null en el de descarte, porque sino ambos apuntarian a lo mismo
+    *mazoA = *mazoB;
+    *mazoB = NULL;
     *CantidadCartas=0;
 }
 void asignar_puntos(tJugador * jugPrincipal,tJugador * jugContrincante,tCarta * principal, tCarta * contrincante)
@@ -188,8 +188,9 @@ int juegoDOCE()
         return res;
 
     //creo y cargo los jugadores, no interesa el orden con que se creen
-    if((posIA = cargar_jugador(&jug[0],&jug[1])) == -12)
+    if((posIA = cargar_jugador(&jug[0],&jug[1])) == JUGADOR_NO_CARGADO)
     {
+        printf("Fallo cargar Jugadores\n");
         vaciar_lista(&mazoA);
         fclose(pfRegistros);
         return posIA;
@@ -236,8 +237,10 @@ int juegoDOCE()
     fclose(pfRegistros);
 
     if(lista_vacia(&mazoA)!= LISTA_VACIA || lista_vacia(&mazoB) != LISTA_VACIA || cola_vacia(&cola_regTurnos) != COLA_VACIA)
-        return -11;
-
+    {
+        printf("Hubo perdida de datos........");
+        return PERDIDA_DE_DATOS;
+    }
 
     return TODO_OK;
 }

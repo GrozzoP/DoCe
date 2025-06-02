@@ -1,9 +1,6 @@
 #ifndef MAZO_H_INCLUDED
 #define MAZO_H_INCLUDED
 
-#ifndef ENABLE_VIRTUAL_TERMINAL_PROCESSING
-#define ENABLE_VIRTUAL_TERMINAL_PROCESSING 0x0004
-#endif
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -12,6 +9,10 @@
 #include "tipoJugador.h"
 #include "utils/listaSimple.h"
 #include "../config.h"
+
+#ifndef ENABLE_VIRTUAL_TERMINAL_PROCESSING
+#define ENABLE_VIRTUAL_TERMINAL_PROCESSING 0x0004
+#endif
 
 #define		TO_STRING(X)	#X
 
