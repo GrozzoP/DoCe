@@ -74,9 +74,10 @@ int ver_ranking(const char* url)
     tRespuesta res;
     tJugadorAPI jugador;
     tLista lista;
+    CURLcode res_curl;
 
-    if(peticion_GET(&res, url) != CURLE_OK)
-        return -1;
+    if((res_curl=peticion_GET(&res, url)) != CURLE_OK)
+        return res_curl;
 
     crear_lista(&lista);
 

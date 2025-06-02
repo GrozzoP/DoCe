@@ -184,15 +184,12 @@ int juegoDOCE()
     crear_cola(&cola_regTurnos);
 
     //cargo el mazo principal
-    if((res=cargar_carta_lista_random(&mazoA,"cartas.txt"))==ERROR_SOBRECARGA_CARTAS)
-        return ERROR_SOBRECARGA_CARTAS;
-    if(res == ERROR_OBTENER_TIPOPODER_SEGUN_CARTA)
-        return ERROR_OBTENER_TIPOPODER_SEGUN_CARTA;
+    if((res=cargar_carta_lista_random(&mazoA,"cartas.txt")) != TODO_OK)
+        return res;
 
     //creo y cargo los jugadores, no interesa el orden con que se creen
-    if((posIA = cargar_jugador(&jug[0],&jug[1]))==-1)
+    if((posIA = cargar_jugador(&jug[0],&jug[1])) == -12)
     {
-        printf("Fallo cargar Jugadores\n");
         vaciar_lista(&mazoA);
         fclose(pfRegistros);
         return posIA;
@@ -239,10 +236,8 @@ int juegoDOCE()
     fclose(pfRegistros);
 
     if(lista_vacia(&mazoA)!= LISTA_VACIA || lista_vacia(&mazoB) != LISTA_VACIA || cola_vacia(&cola_regTurnos) != COLA_VACIA)
-    {
-        printf("Hubo perdida de datos........");
-        return -1;
-    }
+        return -11;
+
 
     return TODO_OK;
 }

@@ -1,6 +1,9 @@
 #ifndef MAZO_H_INCLUDED
 #define MAZO_H_INCLUDED
 
+#ifndef ENABLE_VIRTUAL_TERMINAL_PROCESSING
+#define ENABLE_VIRTUAL_TERMINAL_PROCESSING 0x0004
+#endif
 
 #include <stdio.h>
 #include <stdlib.h>

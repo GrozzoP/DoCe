@@ -4,8 +4,11 @@ void _cargarJugador(tJugador * py)
 {
     char *nomb=(char*)malloc(sizeof(char)*TAM_NOM);
     do{
+        system("CLS");
         printf("Ingrese Nombre: ");
-    }while(!scanf("%s",nomb));
+        fflush(stdin);
+        fgets(nomb, TAM_NOM -1, stdin);
+    }while(strcmp(nomb,"IA_FACIL\n") == 0 || strcmp(nomb,"IA_NORMAL\n") == 0 || strcmp(nomb,"IA_DIFICIL\n") == 0);
 
     nomb[strcspn(nomb, "\n")] = '\0';
     strcpy(py->nombre,nomb);
@@ -17,7 +20,10 @@ void _cargarIA(tJugador * py)
 {
     int d=0;
     printf("DIFICULTAD A ELEJIR:\n 1)FACIL\n 2)NORMAL\n 3)DIFICIL\n Seleccione Nro:");
-    scanf("%d",&d);
+    do
+    {
+        scanf("%d",&d);
+    }while(d<1 || d>3);
     system("CLS");
     switch(d)
     {
@@ -58,16 +64,16 @@ int cargar_jugador(tJugador* jugA, tJugador* jugB)
 
         return res;
     }
-    return -1;
+    return -12;
 }
 int obtener_pos_carta_jugador()
 {
-  /*  int pos;
+    /*int pos;
     do{
         printf("\nSeleccione Carta:");
         scanf("%d",&pos);
         pos--;
-    }while(pos>2 || pos<0)
+    }while(pos>2 || pos<0);
     return pos;*/
     return rand()%3;
 
