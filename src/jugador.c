@@ -4,12 +4,21 @@
 void _cargarJugador(tJugador * py)
 {
     char* nomb = (char*)malloc(sizeof(char) * TAM_NOM);
+    system("CLS");
     do{
-        system("CLS");
         printf("Ingrese Nombre: ");
         fflush(stdin);
         fgets(nomb, TAM_NOM -1, stdin);
-    }while(strcmp(nomb,"IA_FACIL\n") == 0 || strcmp(nomb,"IA_NORMAL\n") == 0 || strcmp(nomb,"IA_DIFICIL\n") == 0);
+
+        if (strcmpi(nomb,"IA_FACIL\n") == 0 || strcmpi(nomb,"IA_NORMAL\n") == 0 || strcmpi(nomb,"IA_DIFICIL\n") == 0)
+            puts("No puede ponerte el nombre de la ia!!! Favor reingrese");
+        else if (strcmpi(nomb,"\n") == 0)
+            puts("No puedes dejar tu nombre en blanco!!! Favor reingrese");
+        else if (strlen(nomb) <= 3)
+            puts("Tu nombre es demasiado corto!!! Favor reingrese");
+        else
+            break;
+    }while(1);
 
     nomb[strcspn(nomb, "\n")] = '\0';
     strcpy(py->nombre,nomb);
