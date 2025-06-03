@@ -11,11 +11,11 @@ void _cargarJugador(tJugador * py)
         fgets(nomb, TAM_NOM -1, stdin);
 
         if (strcmpi(nomb,"IA_FACIL\n") == 0 || strcmpi(nomb,"IA_NORMAL\n") == 0 || strcmpi(nomb,"IA_DIFICIL\n") == 0)
-            puts("No puede ponerte el nombre de la ia!!! Favor reingrese");
+            puts("No puede ponerse el nombre de la IA. Por favor reingrese.");
         else if (strcmpi(nomb,"\n") == 0)
-            puts("No puedes dejar tu nombre en blanco!!! Favor reingrese");
+            puts("No puede dejar su nombre en blanco. Por favor reingrese.");
         else if (strlen(nomb) <= 3)
-            puts("Tu nombre es demasiado corto!!! Favor reingrese");
+            puts("Tu nombre es demasiado corto, deberia ser mayor a 3 caracteres. Por favor reingrese.");
         else
             break;
     }while(1);

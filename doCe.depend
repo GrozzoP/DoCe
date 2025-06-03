@@ -50,7 +50,7 @@
 1748889870 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\main.c
 	"include/utils/menu.h"
 
-1748965003 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\lib\conectarapi.c
+1748977787 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\lib\conectarapi.c
 	"conectarAPI.h"
 
 1748808113 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\lib\conectarapi.h
@@ -80,10 +80,10 @@
 1748965180 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\mazo.c
 	"../include/mazo.h"
 
-1748965182 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\partida.c
+1748977203 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\partida.c
 	"../include/partida.h"
 
-1748963615 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\ranking.c
+1748977183 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\ranking.c
 	"../include/ranking.h"
 
 1748808113 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\utils\coladinamica.c
