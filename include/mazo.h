@@ -16,13 +16,13 @@
 
 #define		TO_STRING(X)	#X
 
-int cargar_carta_lista_random(tLista * pL,const char * nombArch);
-
-int pedir_carta_maso(tLista * masoA,tJugador * jugador,int pos);
-void _remezclar_mazo(const tCarta * val,tLista *pL,unsigned cantCartas);
-void descartar_carta_mano(tLista * masoB,tJugador * jugador,int pos,int cantCartas);
-void cargar_mano(tJugador * py,tLista * lista);
-void descartar_mano(tJugador * py,tLista * lista);
+int cargar_carta_lista_random(tLista* pL, const char* nombArch);
+int crear_archivo_cartas(const char* nombreArch);
+int pedir_carta_mazo(tLista* mazoA, tJugador* jugador, int pos);
+void remezclar_mazo(const tCarta* val, tLista* pL, unsigned cantCartas);
+void descartar_carta_mano(tLista* mazoB, tJugador* jugador, int pos, int cantCartas);
+void cargar_mano(tJugador* py, tLista* lista);
+void descartar_mano(tJugador* py, tLista* lista);
 
 
 #endif // MAZO_H_INCLUDED

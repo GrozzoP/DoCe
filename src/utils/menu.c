@@ -33,8 +33,8 @@ int menu()
     vistas_bienvenida();
     char linea[20];
 
-    printf("%40s|Menu de Opciones[1,2,3]|\n%40s%s\n1]%-40s2]%-40s3]%-20s\n",
-           " "," ","+-----------------------+",MENSAJES[0],MENSAJES[1],MENSAJES[2]);
+    printf("%37s|Menu de Opciones[1,2,3]|\n%37s%s\n1) %-40s2) %-40s3) %-20s\n",
+           " "," ","+-----------------------+", MENSAJES[0], MENSAJES[1], MENSAJES[2]);
     do
     {
         printf("Seleccione Nro: ");

@@ -38,19 +38,9 @@ int obtener_pos_carta_IA_dificil(tJugador* IA, tCarta* ultima_carta, int puntaje
     }
 
     // Regla 3: Prefiere repetir turno solo si tiene más de una carta buena en mano
-    /* Cuando llego a este punto, tengo dos situaciones posibles:
-            1: El jugador esta cerca de ganar, pero no tiene RESTAR_2, RESTAR_1 ni REPETIR_TURNO,
-            entonces solo podria optar por una carta de espejo o sumar
-            2: El jugador no esta cerca de ganar, asi que no se ingreso en el anterior IF */
-
     // Si el contrincante no esta cerca de ganar, entonces la IA prioriza sumar puntos, de lo contrario, resta
     if(puntaje_jugador < 8)
     {
-        /* Posibilidades:
-           Si tengo SUMAR_2 y REPETIR -> REPETIR
-           Si tengo SUMAR_2 y no REPETIR -> SUMAR_2
-           Si tengo SUMAR_1 y REPETIR -> REPETIR
-           Si tengo SUMAR_1 y no REPETIR -> SUMAR_1 */
         pos_sumar = buscar_carta_en_mano(IA, SUMAR_2);
 
         if(pos_sumar != -1)
@@ -62,11 +52,6 @@ int obtener_pos_carta_IA_dificil(tJugador* IA, tCarta* ultima_carta, int puntaje
                 return (pos_repetir != -1) ? (pos_repetir) : (pos_sumar);
         }
 
-        // Si llegue hasta este punto, no tengo cartas de sumar, asi que me queda restar
-        /* Si tengo RESTAR_2 Y REPETIR -> REPETIR
-           Si tengo RESTAR_2 Y no REPETIR -> RESTAR_2
-           Si tengo RESTAR_1 Y REPETIR -> REPETIR
-           Si tengo RESTAR_1 Y no REPETIR -> RESTAR_1 */
         if(puntaje_jugador >= 2)
         {
             pos_restar = buscar_carta_en_mano(IA, RESTAR_2);
@@ -81,12 +66,6 @@ int obtener_pos_carta_IA_dificil(tJugador* IA, tCarta* ultima_carta, int puntaje
         }
 
     }
-    /* Es el caso de que el contrincante este cerca de ganar, si yo pase por la REGLA 1,
-       y llegue hasta evaluar esta condicion, solo podria darse si:
-            - POS_REPETIR == -1
-            - POS_RESTAR_1 == -1
-            - POS_RESTAR_2 == -1
-       asi que deberia evaluar si tiro un espejo o finalmente la de repetir*/
     else
     {
         // La primera condicion me asegura que en el primer IF de la funcion, si se calculo el espejo

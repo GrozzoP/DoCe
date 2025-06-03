@@ -1,7 +1,5 @@
-
 Sumar_2
 Sumar_1
-
 Restar_1
 REPETIR_TURNO
 Restar_2
@@ -14,9 +12,6 @@ REPETIR_TURNO
 Sumar_1
 Restar_1
 Sumar_1
-
-
-
 Espejo
 Restar_2
 Sumar_2
