@@ -345,6 +345,7 @@ void vistas_juego(tJugador* a, tJugador* b, tCarta* ca, tCarta* cb ,unsigned Can
 {
 //    static int primera_vez=1;
     system("CLS");
+    /*
     printf("\nDEBUG CARTAS IA");
     if(strncmp("IA_",a->nombre,3)==0)
     {
@@ -357,7 +358,7 @@ void vistas_juego(tJugador* a, tJugador* b, tCarta* ca, tCarta* cb ,unsigned Can
         printf("\nSEGUNDA CARTA: %s", obtener_stringPoder(&b->mano.mano[1]));
         printf("\nTERCER CARTA: %s\n", obtener_stringPoder(&b->mano.mano[2]));
     }
-
+    */
     if(Cant<36)
     {
         printf("+-------------------------------------------------------------------------------------------------------+\n");
