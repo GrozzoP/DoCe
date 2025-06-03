@@ -90,7 +90,7 @@ int obtener_pos_carta_jugador()
     int pos;
 
     do{
-        printf("\nSeleccione Carta: ");
+        printf("Seleccione Carta: ");
         scanf("%d", &pos);
         pos--;
     } while(pos>2 || pos<0);

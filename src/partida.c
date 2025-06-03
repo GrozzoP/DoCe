@@ -108,7 +108,7 @@ void procesar_partida(tLista* mazoA, tLista* mazoB,tCola* cola_regTurnos, tJugad
                 almacenar_turno(cola_regTurnos,primer_jugador,segundo_jugador,carta_primer_jugador,vacia,turno);
                 vistas_juego(primer_jugador,segundo_jugador,&carta_primer_jugador,&vacia,cantidadCartas);
             }
-        } while(carta_primer_jugador.tipoPoder == REPETIR_TURNO && lista_vacia(mazoA) != LISTA_VACIA );
+        } while(carta_primer_jugador.tipoPoder == REPETIR_TURNO);
 
         do {
             cantidadCartas++;
@@ -122,7 +122,7 @@ void procesar_partida(tLista* mazoA, tLista* mazoB,tCola* cola_regTurnos, tJugad
             vistas_juego(primer_jugador,segundo_jugador,&carta_primer_jugador,&carta_segundo_jugador,cantidadCartas);
 
             descartar_carta_mano(mazoB,segundo_jugador,pos,cantidadCartas);
-            if(pedir_carta_maso(mazoA,segundo_jugador,pos)==LISTA_VACIA)
+            if(pedir_carta_maso(mazoA,segundo_jugador,pos) == LISTA_VACIA)
             {
                 intercambiar_mazos(mazoA,mazoB,&cantidadCartas);
                 pedir_carta_maso(mazoA,segundo_jugador,pos);
@@ -133,7 +133,7 @@ void procesar_partida(tLista* mazoA, tLista* mazoB,tCola* cola_regTurnos, tJugad
                 almacenar_turno(cola_regTurnos, primer_jugador, segundo_jugador, carta_primer_jugador, carta_segundo_jugador,turno);
                 vistas_juego(primer_jugador,segundo_jugador,&carta_primer_jugador,&carta_segundo_jugador,cantidadCartas);
             }
-        } while( carta_segundo_jugador.tipoPoder == REPETIR_TURNO  && lista_vacia(mazoA) != LISTA_VACIA);
+        } while( carta_segundo_jugador.tipoPoder == REPETIR_TURNO);
 
         asignar_puntos(primer_jugador,segundo_jugador,&carta_primer_jugador,&carta_segundo_jugador);
         almacenar_turno(cola_regTurnos,primer_jugador,segundo_jugador,carta_primer_jugador,carta_segundo_jugador,turno);
@@ -152,7 +152,26 @@ void partida(tLista * mazoA,tLista * mazoB,tCola * cola_regTurnos,tJugador * pri
     if(strcmpi(primer_jugador->nombre,STRING_PERFILES[IA_DIFICIL])==0 || strcmpi(segundo_jugador->nombre,STRING_PERFILES[IA_DIFICIL])==0)
         procesar_partida(mazoA, mazoB, cola_regTurnos, primer_jugador, segundo_jugador, posIA, obtener_pos_carta_IA_dificil);
 }
+void mostrar_y_subir_jugador_ganador_API(tJugador * primer_jugador,tJugador * segundo_jugador)
+{
+    system("CLS");
+    printf("\n---------------[Jugador Ganador]---------------\n");
 
+    if(primer_jugador->puntajeAcumulado > 11)
+    {
+        printf("\n[Nombre del Jugador]: %s\n[Puntos obtenidos]: %d\n", primer_jugador->nombre, primer_jugador->puntajeAcumulado);
+        if(strncmp("IA_",primer_jugador->nombre,3) != 0)
+            enviar_jugador_JSON(primer_jugador);
+    }
+    else
+    {
+        printf("\n[Nombre del Jugador]: %s\n[Puntos obtenidos]: %d\n", segundo_jugador->nombre, segundo_jugador->puntajeAcumulado);
+        if(strncmp("IA_",segundo_jugador->nombre,3) != 0)
+            enviar_jugador_JSON(segundo_jugador);
+    }
+    printf("\n-----------------------------------------------\n");
+
+}
 void crear_archivo_informes(FILE ** pInforme)
 {
     char hora[32], nombre_reg[37];
@@ -190,7 +209,6 @@ int juegoDOCE()
     //creo y cargo los jugadores, no interesa el orden con que se creen
     if((posIA = cargar_jugador(&jug[0],&jug[1])) == JUGADOR_NO_CARGADO)
     {
-        printf("Fallo cargar Jugadores\n");
         vaciar_lista(&mazoA);
         fclose(pfRegistros);
         return posIA;
@@ -208,23 +226,8 @@ int juegoDOCE()
     //grabo los registros
     imprimir_turnos(&cola_regTurnos,pfRegistros);
 
-    system("CLS");
-    printf("\n---------[Ganador]---------------\n");
-
-    if(jug[0].puntajeAcumulado > 11)
-    {
-        printf("\nJugador ganador: [%s]\nPuntos obtenidos:%d\n", jug[0].nombre,jug[0].puntajeAcumulado);
-       if(strncmp("IA_",jug[0].nombre,3)!=0)
-            enviar_jugador_JSON(&jug[0]);
-    }
-    else
-    {
-        printf("\nJugador ganador: [%s]\nPuntos obtenidos:%d\n", jug[1].nombre,jug[1].puntajeAcumulado);
-        if(strncmp("IA_",jug[1].nombre,3)!=0)
-            enviar_jugador_JSON(&jug[1]);
-    }
-
-    printf("\n---------------------------------\n");
+    //muestra en pantalla quien gano y se sube a la api en caso de ser humano
+    mostrar_y_subir_jugador_ganador_API(&jug[0],&jug[1]);
 
     //retiro las 6 cartas que le quedan a los jugadores
     descartar_mano(&jug[0],&mazoB);
@@ -237,10 +240,7 @@ int juegoDOCE()
     fclose(pfRegistros);
 
     if(lista_vacia(&mazoA)!= LISTA_VACIA || lista_vacia(&mazoB) != LISTA_VACIA || cola_vacia(&cola_regTurnos) != COLA_VACIA)
-    {
-        printf("Hubo perdida de datos........");
         return PERDIDA_DE_DATOS;
-    }
 
     return TODO_OK;
 }

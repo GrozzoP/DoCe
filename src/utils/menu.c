@@ -5,19 +5,19 @@ int imprimir_errores(int val_error)
     switch(val_error)
     {
         case PERDIDA_DE_DATOS:
-            printf("\nHubo perdida de datos al vaciar las listas/colas\n");
+            printf("Error:\nHubo perdida de datos al vaciar las listas/colas\nTerminando proceso con perdidas...");
             break;
         case JUGADOR_NO_CARGADO:
-            printf("\nAlgo salio mal al cargar los jugadores\n");
+            printf("Error:\nAlgo salio mal al cargar los jugadores\nTerminando proceso...");
             break;
         case ERROR_ARCHIVO:
-            printf("\nError al crear/cargar archivo\n");
+            printf("Error:\nFallo al crear/cargar archivo\nTerminando proceso...");
             break;
         case ERROR_OBTENER_TIPOPODER_SEGUN_CARTA:
-            printf("\nPoder de carta cargado Inexistente\n");
+            printf("Error Carga de Archivo Cartas:\nPoder de carta cargado Inexistente\nTerminando proceso...");
             break;
         case ERROR_SOBRECARGA_CARTAS:
-            printf("\nCartas cargadas de mas de tipo poder especifico\n");
+            printf("Error Carga de Archivo Cartas:\nCartas cargadas del mismo tipo especifico mayor a la cantidad establecida\nTerminando proceso...");
             break;
         case LISTA_LLENA:
             printf("\nLista Llena, no se pueden cargar mas datos\n");

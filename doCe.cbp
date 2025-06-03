@@ -60,13 +60,7 @@
 		<Unit filename="src/carta.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="src/jugada.c">
-			<Option compilerVar="CC" />
-		</Unit>
 		<Unit filename="src/jugador.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="src/mano.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src/mazo.c">
