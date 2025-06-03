@@ -8,7 +8,10 @@ int cargar_carta_lista_random(tLista* pL, const char* nombArch)
     FILE* pf = fopen(nombArch, "rt");
 
     if(!pf)
+    {
         crear_archivo_cartas(nombArch);
+        pf = fopen(nombArch, "rt");
+    }
 
     while(fscanf(pf, "%13s", carta) == 1)
     {
