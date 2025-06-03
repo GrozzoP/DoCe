@@ -15,7 +15,7 @@ void _cargarJugador(tJugador * py)
         else if (strcmpi(nomb,"\n") == 0)
             puts("No puede dejar su nombre en blanco. Por favor reingrese.");
         else if (strlen(nomb) <= 3)
-            puts("Tu nombre es demasiado corto, deberia ser mayor a 3 caracteres. Por favor reingrese.");
+            puts("Tu nombre es demasiado corto, deberia ser mayor a 2 caracteres. Por favor reingrese.");
         else
             break;
     }while(1);
@@ -96,13 +96,21 @@ int cargar_jugador(tJugador* jugA, tJugador* jugB)
 
 int obtener_pos_carta_jugador()
 {
-    int pos;
+    char linea[20];
+    int d;
 
     do{
         printf("Seleccione Carta: ");
-        scanf("%d", &pos);
-        pos--;
-    } while(pos>2 || pos<0);
+        fgets(linea, sizeof(linea), stdin);
+        if (sscanf(linea, "%d", &d) != 1) {
+            printf("Entrada invalida. Debe ingresar un numero.\n");
+            continue;
+        }
 
-    return pos;
+        if (d < 1 || d > 3) {
+            printf("Opcion fuera de rango. Elija 1, 2 o 3.\n");
+        }
+    } while(d < 1 || d > 3);
+
+    return d-1;
 }
