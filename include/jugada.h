@@ -5,9 +5,11 @@
 
 typedef struct {
     unsigned nroJugada;
-    char* nombreJugador;
-    char* cartaJugada;
-    int puntajeAcumulado;
+    char *nombreJugador[2];
+    char cartaJugada_primer_jugador[13],
+         cartaJugada_segundo_jugador[13];
+    int puntajeAcumulado_primer_jugador,
+        puntajeAcumulado_segundo_jugador;
 } tJugada;
 
 #endif // JUGADA_H_INCLUDED

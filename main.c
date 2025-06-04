@@ -1,8 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "include/utils/menu.h"
 
-int main()
-{
-    return 0;
+int main() {
+    return menu_juego();
 }

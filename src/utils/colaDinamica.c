@@ -7,7 +7,7 @@ void crear_cola(tCola* cola)
 
 int enColar(tCola* cola, const void* dato, unsigned tam)
 {
-    tNodo* nue = malloc(sizeof nue);
+    tNodoC* nue =(tNodoC*) malloc(sizeof(tNodoC));
 
     if (!nue)
         return COLA_LLENA;
@@ -37,7 +37,7 @@ int enColar(tCola* cola, const void* dato, unsigned tam)
 
 int desEnColar(tCola* cola, void* dato, unsigned tam)
 {
-    tNodo* elim = cola->pri;
+    tNodoC* elim = cola->pri;
 
     if (!elim)
         return COLA_VACIA;
@@ -65,7 +65,7 @@ int ver_primero(tCola* cola, void* dato, unsigned tam)
 
 int cola_llena(const tCola* cola, unsigned tam)
 {
-    tNodo* nue = (tNodo*)malloc(sizeof(tNodo));
+    tNodoC* nue = (tNodoC*)malloc(sizeof(tNodoC));
 
     if (!nue)
         return COLA_LLENA;
@@ -91,7 +91,7 @@ int cola_vacia(const tCola* cola)
 
 void vaciar_cola(tCola* cola)
 {
-    tNodo* elim;
+    tNodoC* elim;
 
     while (cola->pri != NULL)
     {
@@ -107,7 +107,7 @@ void vaciar_cola(tCola* cola)
 
 int consumir_cola(tCola* cola,  int (*func)(void* dato, void* param), void* param)
 {
-	tNodo* elim = cola->pri;
+	tNodoC* elim = cola->pri;
 	if (!elim)	return COLA_VACIA;
 
 	do

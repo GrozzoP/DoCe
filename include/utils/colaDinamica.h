@@ -8,17 +8,17 @@ enum{COLA_TODO_OK, COLA_LLENA, COLA_NO_LLENA, COLA_VACIA, COLA_CONTIENE_DATOS};
 #include <string.h>
 #include <stdlib.h>
 
-typedef struct sNodo
+typedef struct sNodoC
 {
     void* dato;
     unsigned tam;
-    struct sNodo* sig;
-} tNodo;
+    struct sNodoC* sig;
+} tNodoC;
 
 typedef struct
 {
-    tNodo* pri;
-    tNodo* ult;
+    tNodoC* pri;
+    tNodoC* ult;
 } tCola;
 
 void crear_cola(tCola* cola);

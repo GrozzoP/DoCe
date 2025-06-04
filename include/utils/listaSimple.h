@@ -30,6 +30,7 @@ int sacar_primero_lista(tLista* lista, void* dato, unsigned tam);
 int ver_primero_lista(const tLista* lista, void* dato, unsigned tam);
 void recorrer_lista(const tLista* lista, tMostrar mostrar);
 int insertar_ordenado_sin_duplicados_desc(tLista* lista, const void* dato, unsigned tam, void* parametro, tComparar comparar, tAccion accion);
+int poner_en_lista_pos(tLista * pL,const void * dato,unsigned cantBytes,unsigned pos);
 
 int map_lista(tLista* lista, tAccion accion, void* param);
 
