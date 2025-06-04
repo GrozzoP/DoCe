@@ -543,3 +543,124 @@
 1748808113 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\utils\vistas.c
 	"../../include/mazo.h"
 
+1749005446 source:c:\users\mirag\onedrive\escritorio\tp_algoritmos_2025_1c_mango\doce\lib\conectarapi.c
+	"conectarAPI.h"
+
+1749005446 c:\users\mirag\onedrive\escritorio\tp_algoritmos_2025_1c_mango\doce\lib\conectarapi.h
+	<curl/curl.h>
+	"../include/jugador.h"
+
+1749005446 c:\users\mirag\onedrive\escritorio\tp_algoritmos_2025_1c_mango\doce\include\jugador.h
+	<stdio.h>
+	<string.h>
+	"tipoJugador.h"
+	"IA.h"
+
+1749005446 c:\users\mirag\onedrive\escritorio\tp_algoritmos_2025_1c_mango\doce\include\tipojugador.h
+	<stdio.h>
+	<windows.h>
+	<stdlib.h>
+	<time.h>
+	"mano.h"
+
+1749005446 c:\users\mirag\onedrive\escritorio\tp_algoritmos_2025_1c_mango\doce\include\mano.h
+	"carta.h"
+
+1749005446 c:\users\mirag\onedrive\escritorio\tp_algoritmos_2025_1c_mango\doce\include\carta.h
+	<string.h>
+	"tipoPoder.h"
+	"../config.h"
+	"utils/comun.h"
+
+1749005446 c:\users\mirag\onedrive\escritorio\tp_algoritmos_2025_1c_mango\doce\include\tipopoder.h
+
+1749005446 c:\users\mirag\onedrive\escritorio\tp_algoritmos_2025_1c_mango\doce\config.h
+
+1749005446 c:\users\mirag\onedrive\escritorio\tp_algoritmos_2025_1c_mango\doce\include\utils\comun.h
+
+1749005446 c:\users\mirag\onedrive\escritorio\tp_algoritmos_2025_1c_mango\doce\include\ia.h
+	"tipoJugador.h"
+
+1749005446 source:c:\users\mirag\onedrive\escritorio\tp_algoritmos_2025_1c_mango\doce\main.c
+	"include/utils/menu.h"
+
+1749005446 c:\users\mirag\onedrive\escritorio\tp_algoritmos_2025_1c_mango\doce\include\utils\menu.h
+	"../../config.h"
+	"../ranking.h"
+	"../partida.h"
+	"vistas.h"
+	"comun.h"
+
+1749005446 c:\users\mirag\onedrive\escritorio\tp_algoritmos_2025_1c_mango\doce\include\ranking.h
+	"../lib/conectarAPI.h"
+	"utils/listaSimple.h"
+	"utils/comun.h"
+
+1749019487 c:\users\mirag\onedrive\escritorio\tp_algoritmos_2025_1c_mango\doce\include\utils\listasimple.h
+	<stdlib.h>
+	<string.h>
+
+1749005446 c:\users\mirag\onedrive\escritorio\tp_algoritmos_2025_1c_mango\doce\include\partida.h
+	<stdio.h>
+	<ctype.h>
+	<time.h>
+	<conio.h>
+	"utils/colaDinamica.h"
+	"utils/vistas.h"
+	"mazo.h"
+	"jugada.h"
+	"jugador.h"
+	"../config.h"
+	"../lib/conectarAPI.h"
+
+1749005446 c:\users\mirag\onedrive\escritorio\tp_algoritmos_2025_1c_mango\doce\include\utils\coladinamica.h
+	<string.h>
+	<stdlib.h>
+
+1749005446 c:\users\mirag\onedrive\escritorio\tp_algoritmos_2025_1c_mango\doce\include\utils\vistas.h
+	"../tipoJugador.h"
+
+1749005446 c:\users\mirag\onedrive\escritorio\tp_algoritmos_2025_1c_mango\doce\include\mazo.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"tipoJugador.h"
+	"utils/listaSimple.h"
+	"../config.h"
+
+1749005446 c:\users\mirag\onedrive\escritorio\tp_algoritmos_2025_1c_mango\doce\include\jugada.h
+	"carta.h"
+
+1749005446 source:c:\users\mirag\onedrive\escritorio\tp_algoritmos_2025_1c_mango\doce\src\carta.c
+	"../include/carta.h"
+
+1749005446 source:c:\users\mirag\onedrive\escritorio\tp_algoritmos_2025_1c_mango\doce\src\ia.c
+	"../include/IA.h"
+
+1749021127 source:c:\users\mirag\onedrive\escritorio\tp_algoritmos_2025_1c_mango\doce\src\jugador.c
+	"../include/jugador.h"
+
+1749005446 source:c:\users\mirag\onedrive\escritorio\tp_algoritmos_2025_1c_mango\doce\src\mazo.c
+	"../include/mazo.h"
+
+1749005446 source:c:\users\mirag\onedrive\escritorio\tp_algoritmos_2025_1c_mango\doce\src\partida.c
+	"../include/partida.h"
+
+1749019449 source:c:\users\mirag\onedrive\escritorio\tp_algoritmos_2025_1c_mango\doce\src\ranking.c
+	"../include/ranking.h"
+
+1749005446 source:c:\users\mirag\onedrive\escritorio\tp_algoritmos_2025_1c_mango\doce\src\tipojugador.c
+	"../include/tipoJugador.h"
+
+1749005446 source:c:\users\mirag\onedrive\escritorio\tp_algoritmos_2025_1c_mango\doce\src\utils\coladinamica.c
+	"../../include/utils/colaDinamica.h"
+
+1749019670 source:c:\users\mirag\onedrive\escritorio\tp_algoritmos_2025_1c_mango\doce\src\utils\listasimple.c
+	"../../include/utils/listaSimple.h"
+
+1749005446 source:c:\users\mirag\onedrive\escritorio\tp_algoritmos_2025_1c_mango\doce\src\utils\menu.c
+	"../../include/utils/menu.h"
+
+1749005446 source:c:\users\mirag\onedrive\escritorio\tp_algoritmos_2025_1c_mango\doce\src\utils\vistas.c
+	"../../include/mazo.h"
+

@@ -1,7 +1,7 @@
 #ifndef LISTASIMPLE_H_INCLUDED
 #define LISTASIMPLE_H_INCLUDED
 
-enum{LISTA_TODO_OK, LISTA_LLENA, LISTA_NO_LLENA, LISTA_VACIA, LISTA_CONTIENE_DATOS, LISTA_INSERCION_DUPLICADO, ACCION_NULA};
+enum{LISTA_TODO_OK, LISTA_LLENA, LISTA_NO_LLENA, LISTA_VACIA, LISTA_CONTIENE_DATOS, ACCION_NULA};
 
 #include <stdlib.h>
 #include <string.h>
@@ -29,7 +29,7 @@ int poner_al_comienzo_lista(tLista* lista, const void* dato, unsigned tam);
 int sacar_primero_lista(tLista* lista, void* dato, unsigned tam);
 int ver_primero_lista(const tLista* lista, void* dato, unsigned tam);
 void recorrer_lista(const tLista* lista, tMostrar mostrar);
-int insertar_ordenado_sin_duplicados_desc(tLista* lista, const void* dato, unsigned tam, void* parametro, tComparar comparar, tAccion accion);
+int insertar_ordenado_desc(tLista* lista, const void* dato, unsigned tam, tComparar comparar);
 int poner_en_lista_pos(tLista * pL,const void * dato,unsigned cantBytes,unsigned pos);
 
 int map_lista(tLista* lista, tAccion accion, void* param);

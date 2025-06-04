@@ -77,19 +77,12 @@ void recorrer_lista(const tLista* lista, tMostrar mostrar)
     }
 }
 
-int insertar_ordenado_sin_duplicados_desc(tLista* lista, const void* dato, unsigned tam, void* parametro, tComparar comparar, tAccion accion)
+int insertar_ordenado_desc(tLista* lista, const void* dato, unsigned tam, tComparar comparar)
 {
     tNodo* nodoNuevo;
-    int comparacion;
 
-    while(*lista && (comparacion = comparar((*lista)->dato, dato)) > 0)
+    while(*lista && comparar((*lista)->dato, dato) > 0)
         lista = &(*lista)->sig;
-
-    if(*lista && comparacion == 0)
-    {
-        accion((*lista)->dato, parametro);
-        return LISTA_INSERCION_DUPLICADO;
-    }
 
     if((nodoNuevo = (tNodo*)malloc(sizeof(tNodo))) == NULL ||
        (nodoNuevo->dato = malloc(tam)) == NULL)

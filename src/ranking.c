@@ -19,14 +19,9 @@ int comparar_jugador_API(const void* a, const void* b)
 
 int parsear_jugador(tRespuesta* res, tJugadorAPI* jugador)
 {
-    char* pJsonPosterior, *pJsonAnterior, *nombre;
+    char* pJsonPosterior, *pJsonAnterior;
 
     if(!(res->info))
-        return SIN_MEM;
-
-    nombre = malloc(TAM_NOMBRE);
-
-    if(!nombre)
         return SIN_MEM;
 
     pJsonPosterior = res->info;
@@ -75,7 +70,7 @@ int ver_ranking(const char* url)
     crear_lista(&lista);
 
     while(!parsear_jugador(&res, &jugador))
-        insertar_ordenado_sin_duplicados_desc(&lista, &jugador, sizeof(tJugadorAPI), NULL, comparar_jugador_API, NULL);
+        insertar_ordenado_desc(&lista, &jugador, sizeof(tJugadorAPI), comparar_jugador_API);
     printf("Ranking Historico\n\n");
     recorrer_lista(&lista, mostrar_jugador_API);
 
