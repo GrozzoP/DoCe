@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 #include "tipoJugador.h"
 #include "IA.h"
 
@@ -10,7 +11,7 @@
 
 void _cargarJugador(tJugador * py);
 void _cargarIA(tJugador * py);
-
+int cadena_solo_espacios(const char* str);
 int cargar_jugador(tJugador * jugA,tJugador * jugB);
 int obtener_pos_carta_jugador();
 

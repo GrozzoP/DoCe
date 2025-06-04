@@ -16,6 +16,8 @@ void _cargarJugador(tJugador * py)
             puts("No puede dejar su nombre en blanco. Por favor reingrese.");
         else if (strlen(nomb) <= 3)
             puts("Tu nombre es demasiado corto, deberia ser mayor a 2 caracteres. Por favor reingrese.");
+        else if(cadena_solo_espacios(nomb))
+            puts("La cadena no puede estar compuesta de solo espacios. Por favor reingrese.");
         else
             break;
     }while(1);
@@ -24,6 +26,15 @@ void _cargarJugador(tJugador * py)
     strcpy(py->nombre,nomb);
     py->puntajeAcumulado = 0;//pone por defecto 0 los puntos al jugador
     free(nomb);
+}
+
+int cadena_solo_espacios(const char* str) {
+    while (*str) {
+        if (!isspace(*str))
+            return 0;
+        str++;
+    }
+    return 1;
 }
 
 void _cargarIA(tJugador * py)
