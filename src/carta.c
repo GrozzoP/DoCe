@@ -1,6 +1,6 @@
 #include "../include/carta.h"
 
-int obtener_tipoPoder_segun_carta(const char * nomb)
+int obtener_tipoPoder_segun_carta(const char* nomb)
 {
     if(strcmpi(nomb,STRING_PODER[SUMAR_2])==0)
     {

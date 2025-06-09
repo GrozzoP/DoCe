@@ -6,38 +6,41 @@ void intercambiar_mazos(tLista * mazoA,tLista * mazoB,int * CantidadCartas)
     *mazoB = NULL;
     *CantidadCartas=0;
 }
-void asignar_puntos(tJugador * jugPrincipal,tJugador * jugContrincante,tCarta * principal, tCarta * contrincante)
+void asignar_puntos(tJugador* jugPrincipal, tJugador* jugContrincante, tCarta* principal, tCarta* contrincante)
 {
     if(principal->tipoPoder == SUMAR_2 || principal->tipoPoder == SUMAR_1)
-        (principal->tipoPoder == SUMAR_1)? ( jugPrincipal->puntajeAcumulado+=1 ) : ( jugPrincipal->puntajeAcumulado += 2 );
+        (principal->tipoPoder == SUMAR_1)? ( jugPrincipal->puntajeAcumulado+=1 ) : ( jugPrincipal->puntajeAcumulado += 2);
+
     if(contrincante->tipoPoder == SUMAR_2 || contrincante->tipoPoder == SUMAR_1)
-        (contrincante->tipoPoder == SUMAR_1)? ( jugContrincante->puntajeAcumulado += 1 ): ( jugContrincante->puntajeAcumulado += 2 );
+        (contrincante->tipoPoder == SUMAR_1)? ( jugContrincante->puntajeAcumulado += 1 ) : ( jugContrincante->puntajeAcumulado += 2);
+
     if(principal->tipoPoder == RESTAR_1 || principal->tipoPoder == RESTAR_2)
     {
         if(contrincante->tipoPoder == ESPEJO)
         {
-            (principal->tipoPoder == RESTAR_1)? ( jugPrincipal->puntajeAcumulado -= 1 ):( jugPrincipal->puntajeAcumulado -= 2);
-            if(jugPrincipal->puntajeAcumulado<0)
-                jugPrincipal->puntajeAcumulado=0;
+            (principal->tipoPoder == RESTAR_1) ? (jugPrincipal->puntajeAcumulado -= 1 ) : ( jugPrincipal->puntajeAcumulado -= 2);
+            if(jugPrincipal->puntajeAcumulado < 0)
+                jugPrincipal->puntajeAcumulado = 0;
         }else
         {
-            (principal->tipoPoder == RESTAR_1) ? ( jugContrincante->puntajeAcumulado -= 1 ) : ( jugContrincante->puntajeAcumulado -=2 );
-            if(jugContrincante->puntajeAcumulado<0)
-                jugContrincante->puntajeAcumulado=0;
+            (principal->tipoPoder == RESTAR_1) ? ( jugContrincante->puntajeAcumulado -= 1 ) : ( jugContrincante->puntajeAcumulado -= 2);
+            if(jugContrincante->puntajeAcumulado < 0)
+                jugContrincante->puntajeAcumulado = 0;
         }
     }
+
     if(contrincante->tipoPoder == RESTAR_1 || contrincante->tipoPoder == RESTAR_2)
     {
         if(principal->tipoPoder == ESPEJO)
         {
             (contrincante->tipoPoder == RESTAR_1)? (jugContrincante->puntajeAcumulado -= 1) : (jugContrincante->puntajeAcumulado -= 2);
-            if(jugContrincante->puntajeAcumulado<0)
-                jugContrincante->puntajeAcumulado=0;
+            if(jugContrincante->puntajeAcumulado < 0)
+                jugContrincante->puntajeAcumulado = 0;
         }else
         {
-            (contrincante->tipoPoder == RESTAR_1) ? (jugPrincipal->puntajeAcumulado -= 1) : (jugPrincipal->puntajeAcumulado -=2 );
-            if(jugPrincipal->puntajeAcumulado<0)
-                jugPrincipal->puntajeAcumulado=0;
+            (contrincante->tipoPoder == RESTAR_1) ? (jugPrincipal->puntajeAcumulado -= 1) : (jugPrincipal->puntajeAcumulado -= 2 );
+            if(jugPrincipal->puntajeAcumulado < 0)
+                jugPrincipal->puntajeAcumulado = 0;
         }
     }
 }
@@ -133,7 +136,7 @@ void procesar_partida(tLista* mazoA, tLista* mazoB,tCola* cola_regTurnos, tJugad
                 almacenar_turno(cola_regTurnos, primer_jugador, segundo_jugador, carta_primer_jugador, carta_segundo_jugador,turno);
                 vistas_juego(primer_jugador, segundo_jugador, &carta_primer_jugador, &carta_segundo_jugador, cantidadCartas);
             }
-        } while( carta_segundo_jugador.tipoPoder == REPETIR_TURNO);
+        } while(carta_segundo_jugador.tipoPoder == REPETIR_TURNO);
 
         asignar_puntos(primer_jugador, segundo_jugador, &carta_primer_jugador, &carta_segundo_jugador);
         almacenar_turno(cola_regTurnos, primer_jugador, segundo_jugador, carta_primer_jugador, carta_segundo_jugador,turno);
