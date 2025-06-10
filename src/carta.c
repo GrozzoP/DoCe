@@ -64,29 +64,30 @@ int obtener_tipoPoder_segun_carta(const char* nomb)
     }
     return ERROR_OBTENER_TIPOPODER_SEGUN_CARTA;
 }
-char * obtener_stringPoder(tCarta * carta)
+
+char* obtener_stringPoder(tCarta * carta)
 {
     if(carta != NULL)
     {
         switch(carta->tipoPoder)
         {
             case RESTAR_2:
-                return "RESTAR_2\0";
+                return "RESTAR_2";
                 break;
             case RESTAR_1:
-                return "RESTAR_1\0";
+                return "RESTAR_1";
                 break;
             case SUMAR_1:
-                return "SUMAR_1\0";
+                return "SUMAR_1";
                 break;
             case SUMAR_2:
-                return "SUMAR_2\0";
+                return "SUMAR_2";
                 break;
             case ESPEJO:
-                return "ESPEJO\0";
+                return "ESPEJO";
                 break;
             case REPETIR_TURNO:
-                return "REPETIR_TURNO\0";
+                return "REPETIR_TURNO";
                 break;
         }
     }

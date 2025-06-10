@@ -47,29 +47,30 @@
 1746389076 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\conectarapi.c
 	"libs/conectarAPI.h"
 
-1748889870 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\main.c
+1749495005 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\main.c
 	"include/utils/menu.h"
 
-1748977787 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\lib\conectarapi.c
+1749521609 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\lib\conectarapi.c
 	"conectarAPI.h"
 
-1748808113 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\lib\conectarapi.h
+1749495005 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\lib\conectarapi.h
 	<curl/curl.h>
 	"../include/jugador.h"
 
-1748808113 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\include\jugador.h
+1749495005 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\include\jugador.h
 	<stdio.h>
 	<string.h>
+	<ctype.h>
 	"tipoJugador.h"
 	"IA.h"
 
-1748976885 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\jugador.c
+1749521672 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\jugador.c
 	"../include/jugador.h"
 
-1748808113 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\carta.c
+1749524025 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\carta.c
 	"../include/carta.h"
 
-1748964878 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\ia.c
+1749494619 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\ia.c
 	"../include/IA.h"
 
 1748808113 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\jugada.c
@@ -77,30 +78,30 @@
 1748808113 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\mano.c
 	"../include/mano.h"
 
-1748965180 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\mazo.c
+1749495005 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\mazo.c
 	"../include/mazo.h"
 
-1748977203 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\partida.c
+1749523895 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\partida.c
 	"../include/partida.h"
 
-1748977183 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\ranking.c
+1749521623 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\ranking.c
 	"../include/ranking.h"
 
-1748808113 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\utils\coladinamica.c
+1749495005 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\utils\coladinamica.c
 	"../../include/utils/colaDinamica.h"
 
-1748808113 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\utils\listasimple.c
+1749495005 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\utils\listasimple.c
 	"../../include/utils/listaSimple.h"
 
-1748808113 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\include\utils\listasimple.h
+1749495005 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\include\utils\listasimple.h
 	<stdlib.h>
 	<string.h>
 
-1748808113 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\include\utils\coladinamica.h
+1749495005 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\include\utils\coladinamica.h
 	<string.h>
 	<stdlib.h>
 
-1748965295 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\utils\menu.c
+1749495005 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\utils\menu.c
 	"../../include/utils/menu.h"
 
 1748689415 source:c:\users\usuario\downloads\doce-logicajuego\doce-logicajuego\main.c
@@ -474,44 +475,44 @@
 1748808113 source:c:\users\usuario\downloads\doce-604cd585e7a89c94461310bde10bde7f7c5a0bcf\doce-604cd585e7a89c94461310bde10bde7f7c5a0bcf\src\utils\vistas.c
 	"../../include/mazo.h"
 
-1748808113 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\include\tipojugador.h
+1749495005 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\include\tipojugador.h
 	<stdio.h>
 	<windows.h>
 	<stdlib.h>
 	<time.h>
 	"mano.h"
 
-1748808113 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\include\mano.h
+1749495005 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\include\mano.h
 	"carta.h"
 
-1748808113 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\include\carta.h
+1749495005 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\include\carta.h
 	<string.h>
 	"tipoPoder.h"
 	"../config.h"
 	"utils/comun.h"
 
-1748808113 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\include\tipopoder.h
+1749495005 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\include\tipopoder.h
 
-1748808113 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\config.h
+1749495005 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\config.h
 
-1748890748 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\include\utils\comun.h
+1749495005 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\include\utils\comun.h
 
-1748808113 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\include\ia.h
+1749495005 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\include\ia.h
 	"tipoJugador.h"
 
-1748890825 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\include\utils\menu.h
+1749495005 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\include\utils\menu.h
 	"../../config.h"
 	"../ranking.h"
 	"../partida.h"
 	"vistas.h"
 	"comun.h"
 
-1748808113 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\include\ranking.h
+1749495005 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\include\ranking.h
 	"../lib/conectarAPI.h"
 	"utils/listaSimple.h"
 	"utils/comun.h"
 
-1748808113 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\include\partida.h
+1749495005 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\include\partida.h
 	<stdio.h>
 	<ctype.h>
 	<time.h>
@@ -524,10 +525,10 @@
 	"../config.h"
 	"../lib/conectarAPI.h"
 
-1748808113 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\include\utils\vistas.h
+1749495005 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\include\utils\vistas.h
 	"../tipoJugador.h"
 
-1748965182 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\include\mazo.h
+1749495005 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\include\mazo.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -535,13 +536,13 @@
 	"utils/listaSimple.h"
 	"../config.h"
 
-1748808113 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\include\jugada.h
+1749524981 d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\include\jugada.h
 	"carta.h"
 
-1748808113 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\tipojugador.c
+1749495005 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\tipojugador.c
 	"../include/tipoJugador.h"
 
-1748808113 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\utils\vistas.c
+1749523956 source:d:\base\universidad\tercer anio\1er cuatrimestre\algortimos y estructuras de datos\doce\src\utils\vistas.c
 	"../../include/mazo.h"
 
 1749005446 source:c:\users\mirag\onedrive\escritorio\tp_algoritmos_2025_1c_mango\doce\lib\conectarapi.c
