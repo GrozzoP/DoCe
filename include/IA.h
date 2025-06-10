@@ -3,6 +3,7 @@
 
 
 #include "tipoJugador.h"
+#include "jugador.h"
 
 
 typedef enum {IA_FACIL, IA_NORMAL, IA_DIFICIL} eDificultad;

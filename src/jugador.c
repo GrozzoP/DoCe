@@ -1,9 +1,14 @@
 #include "../include/jugador.h"
 #define TAM_NOM 25
 
-void _cargarJugador(tJugador * py)
+int cargar_jugador(tJugador* py)
 {
     char* nomb = (char*)malloc(sizeof(char) * TAM_NOM);
+    int nombre_valido = 0;
+
+    if(nomb == NULL)
+        return SIN_MEM;
+
     system("CLS");
     do{
         printf("Ingrese Nombre: ");
@@ -19,13 +24,15 @@ void _cargarJugador(tJugador * py)
         else if(cadena_solo_espacios(nomb))
             puts("La cadena no puede estar compuesta de solo espacios. Por favor reingrese.");
         else
-            break;
-    }while(1);
+            nombre_valido = 1;
+    } while(!nombre_valido);
 
     nomb[strcspn(nomb, "\n")] = '\0';
     strcpy(py->nombre,nomb);
-    py->puntajeAcumulado = 0;//pone por defecto 0 los puntos al jugador
+    py->puntajeAcumulado = 0; //pone por defecto 0 los puntos al jugador
     free(nomb);
+
+    return TODO_OK;
 }
 
 int cadena_solo_espacios(const char* str) {
@@ -37,7 +44,7 @@ int cadena_solo_espacios(const char* str) {
     return 1;
 }
 
-void _cargarIA(tJugador * py)
+void cargar_IA(tJugador* py)
 {
     int d = 0;
     char linea[20];
@@ -68,36 +75,38 @@ void _cargarIA(tJugador * py)
     switch(d)
     {
         case 1:
-            strcpy(py->nombre,TO_STRING(IA_FACIL));
+            strcpy(py->nombre, TO_STRING(IA_FACIL));
             break;
         case 2:
-            strcpy(py->nombre,TO_STRING(IA_NORMAL));
+            strcpy(py->nombre, TO_STRING(IA_NORMAL));
             break;
         case 3:
-            strcpy(py->nombre,TO_STRING(IA_DIFICIL));
+            strcpy(py->nombre, TO_STRING(IA_DIFICIL));
             break;
     }
 }
 
-int cargar_jugador(tJugador* jugA, tJugador* jugB)
+int cargar_jugadores(tJugador* jugA, tJugador* jugB)
 {
     srand(time(NULL));
 
-    int res=rand()%2;
+    int res = rand() % 2;
 
-    if(res==0)
+    if(res == 0)
     {
-        _cargarJugador(jugB);
+        if((cargar_jugador(jugB)) == SIN_MEM)
+            return JUGADOR_NO_CARGADO;
 
-        _cargarIA(jugA);
+        cargar_IA(jugA);
 
         return res;
     }
     else
     {
-        _cargarJugador(jugA);
+        if((cargar_jugador(jugA)) == SIN_MEM)
+            return JUGADOR_NO_CARGADO;
 
-        _cargarIA(jugB);
+        cargar_IA(jugB);
 
         return res;
     }
@@ -123,4 +132,17 @@ int obtener_pos_carta_jugador()
     } while(d < 1 || d > 3);
 
     return d - 1;
+}
+
+int buscar_carta_no_negativa(tJugador* jugador)
+{
+    int i;
+
+    for(i = 0; i < CANT_MANO; i++)
+    {
+        if(jugador->mano.mano[i].tipoPoder != RESTAR_1 && jugador->mano.mano[i].tipoPoder != RESTAR_2)
+            return i;
+    }
+
+    return -1;
 }

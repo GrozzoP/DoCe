@@ -9,10 +9,11 @@
 
 #define		TO_STRING(X)	#X
 
-void _cargarJugador(tJugador * py);
-void _cargarIA(tJugador * py);
+int cargar_jugador(tJugador* py);
+void cargar_IA(tJugador* py);
 int cadena_solo_espacios(const char* str);
-int cargar_jugador(tJugador * jugA,tJugador * jugB);
+int cargar_jugadores(tJugador* jugA,tJugador* jugB);
 int obtener_pos_carta_jugador();
+int buscar_carta_no_negativa(tJugador* jugador);
 
 #endif // JUGADOR_H_INCLUDED

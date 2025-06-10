@@ -3,7 +3,7 @@
 
 int obtener_pos_carta_IA_dificil(tJugador* IA, tCarta* ultima_carta, int puntaje_jugador)
 {
-    int pos_espejo, pos_repetir, pos_restar, pos_sumar;
+    int pos_espejo, pos_repetir, pos_restar, pos_sumar, pos_no_restar;
     pos_espejo = pos_repetir = pos_restar = pos_sumar = -1;
 
     printf("IA Seleccionando carta.....");
@@ -30,8 +30,7 @@ int obtener_pos_carta_IA_dificil(tJugador* IA, tCarta* ultima_carta, int puntaje
         else
             return pos_repetir;
     }
-
-    if(puntaje_jugador < 8)
+    else
     {
         pos_sumar = buscar_carta_en_mano(IA, SUMAR_2);
 
@@ -56,16 +55,11 @@ int obtener_pos_carta_IA_dificil(tJugador* IA, tCarta* ultima_carta, int puntaje
             if(pos_restar != -1)
                 return (pos_repetir != -1) ? (pos_repetir) : (pos_restar);
         }
-
-    }
-    else
-    {
-        if(ultima_carta != NULL && ((ultima_carta->tipoPoder == RESTAR_2) ||
-          (ultima_carta->tipoPoder == RESTAR_1)))
-            return pos_espejo;
-
-        else if(pos_repetir != -1)
-            return pos_repetir;
+        else
+        {
+            if((pos_no_restar = buscar_carta_no_negativa(IA)) != -1)
+                return pos_no_restar;
+        }
     }
 
     return rand() % 3;
@@ -73,7 +67,7 @@ int obtener_pos_carta_IA_dificil(tJugador* IA, tCarta* ultima_carta, int puntaje
 
 int obtener_pos_carta_IA_normal(tJugador* IA, tCarta* ultima_carta, int puntaje_jugador)
 {
-    int pos_sumar, pos_restar, i;
+    int pos_sumar, pos_restar, pos_no_restar;
     printf("IA Seleccionando carta.....");
     Sleep(1000);
 
@@ -94,11 +88,8 @@ int obtener_pos_carta_IA_normal(tJugador* IA, tCarta* ultima_carta, int puntaje_
     }
     else
     {
-        for(i = 0; i < CANT_MANO; i++)
-        {
-            if(IA->mano.mano[i].tipoPoder != RESTAR_1 && IA->mano.mano[i].tipoPoder != RESTAR_2)
-                return i;
-        }
+        if((pos_no_restar = buscar_carta_no_negativa(IA)) != -1)
+            return pos_no_restar;
     }
 
     return rand() % 3;

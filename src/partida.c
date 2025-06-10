@@ -202,7 +202,7 @@ int juegoDOCE()
         return res;
 
     //creo y cargo los jugadores, no interesa el orden con que se creen
-    if((posIA = cargar_jugador(&jug[0], &jug[1])) == JUGADOR_NO_CARGADO)
+    if((posIA = cargar_jugadores(&jug[0], &jug[1])) == JUGADOR_NO_CARGADO)
     {
         vaciar_lista(&mazoA);
         fclose(pfRegistros);

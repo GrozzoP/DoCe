@@ -112,3 +112,4 @@ CURLcode enviar_jugador_JSON(const tJugador* jugador)
 
     return peticion_POST(&respuesta, API_URL_BASE, JSON);
 }
+
