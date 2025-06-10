@@ -109,7 +109,6 @@ int obtener_pos_carta_jugador()
 {
     char linea[20];
     int d;
-/*
     do{
         printf("Seleccione Carta: ");
         fgets(linea, sizeof(linea), stdin);
@@ -123,6 +122,5 @@ int obtener_pos_carta_jugador()
         }
     } while(d < 1 || d > 3);
 
-    return d - 1;*/
-    return rand() % 3;
+    return d - 1;
 }
