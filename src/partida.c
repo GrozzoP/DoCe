@@ -115,7 +115,7 @@ void procesar_partida(tLista* mazoA, tLista* mazoB, tCola* cola_regTurnos, tJuga
     tCarta vacia, carta_primer_jugador, carta_segundo_jugador;
     int turno = 1,cantidadCartas=0;
 
-    while((primer_jugador->puntajeAcumulado < 12) && (segundo_jugador->puntajeAcumulado < 12))
+    while((primer_jugador->puntajeAcumulado < CANT_PUNTOS) && (segundo_jugador->puntajeAcumulado < CANT_PUNTOS))
     {
         vistas_juego(primer_jugador, segundo_jugador, &vacia, &vacia, cantidadCartas);
 
